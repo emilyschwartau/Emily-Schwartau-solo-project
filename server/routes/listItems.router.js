@@ -7,8 +7,11 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
 
-    const query = `SELECT * FROM tasks ORDER BY "id"`;
-    pool.query(query)
+    const query = `SELECT * FROM tasks 
+    JOIN "user" ON "user"."id" = "tasks"."user_id"
+    WHERE "user_id" = $1`;
+
+    pool.query(query, [req.user.id])
         .then( result => {
             res.send(result.rows);
         })
@@ -16,7 +19,6 @@ router.get('/', (req, res) => {
             console.log('ERROR: Get all tasks', err);
             res.sendStatus(500)
         })
-
 
 });
 

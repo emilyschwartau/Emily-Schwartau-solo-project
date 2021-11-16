@@ -24,8 +24,8 @@ function ListViewPage() {
                                 <div id="margin">
                                     
                                         <div id="card" key={item.id} >
-                                            <h3>{item.task}</h3>
-                                            <h3>{item.due_date}</h3>
+                                            <h3>Task: {item.task}</h3>
+                                            <h3>due date: {item.due_date}</h3>
                                 
                                             
                                         </div>
