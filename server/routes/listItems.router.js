@@ -1,3 +1,5 @@
+
+
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
@@ -64,28 +66,32 @@ router.get('/', (req, res) => {
 
 
 
-
-  router.post("/", rejectUnauthenticated, (req, res) => {
-    // endpoint functionality
-    const newTask = req.body;
-    console.log(newTask);
+//this is on the right track but taking a pause to figure out priority value stuff
+//   router.post("/", rejectUnauthenticated, (req, res) => {
+//     // endpoint functionality
+//     const newTask = req.body;
+//     console.log(newTask);
   
-    const query = `
-    INSERT INTO "tasks" ("task", "due_date", "importance", "time_requirement", "notes", "user_id")
-    VALUES ($1, $2, $3, $4, $5, $6)`;
+//     const query = `
+//     INSERT INTO "tasks" ("task", "due_date", "importance", "time_requirement", "notes", "user_id")
+//     VALUES ($1, $2, $3, $4, $5, $6)`;
   
-    const values = [newTask.task, newTask.due_date, newTask.importance, newTask.time_requirement, newTask.notes, req.user.id];
+//     const values = [newTask.task, newTask.due_date, newTask.importance, newTask.time_requirement, newTask.notes, req.user.id];
   
-    pool
-      .query(query, values)
-      .then((result) => {
-        console.log("POST SUCCESS");
-        res.sendStatus(201);
-      })
-      .catch((error) => {
-        console.log("POST ERROR", error);
-        res.sendStatus(500);
-      });
-  });
+//     pool
+//       .query(query, values)
+//       .then((result) => {
+//         console.log("POST SUCCESS");
+//         res.sendStatus(201);
+//       })
+//       .catch((error) => {
+//         console.log("POST ERROR", error);
+//         res.sendStatus(500);
+//       });
+//   });
 
 module.exports = router;
+
+//could put priority value calculations here??? 
+
+ 
