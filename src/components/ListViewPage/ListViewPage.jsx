@@ -8,11 +8,16 @@ function ListViewPage() {
   //retrieves listItems from the store
   const listItems = useSelector(store => store.listItemsReducer);
 
+  const user = useSelector((store) => store.user);
+
   //firing off actions to get data from DB
   useEffect(() => {
     dispatch({ type: 'FETCH_LIST_ITEMS' });
   }, []);
 
+const deleteItem = (id) => {
+  dispatch({type: 'DELETE_LIST_ITEM', payload: id});
+}
 
   return (
     <div className="container">
@@ -26,7 +31,7 @@ function ListViewPage() {
                                         <div id="card" key={item.id} >
                                             <h3>Task: {item.task}</h3>
                                             <h3>due date: {item.due_date}</h3>
-                                
+                                            {user.id && <button onClick={() => deleteItem(item.id)}>DELETE</button>}
                                             
                                         </div>
                                     

@@ -15,15 +15,17 @@ const {
 //successful get route
 router.get('/', (req, res) => {
 
-    const query = `SELECT * FROM tasks 
+    const query = 
+    `SELECT "tasks"."id", "user_id", "task", "due_date", "importance", "completion_status", "notes", "time_requirement" FROM tasks 
     JOIN "user" ON "user"."id" = "tasks"."user_id"
-    WHERE "user_id" = $1`;
+    WHERE "user_id" = $1;`
 
     pool.query(query, [req.user.id])
         .then( result => {
         //do math for x, y, and priority value here/ massage the data
             //handlePriorityValue();
             //have priority value and x & y sent somehow
+            console.log(result.rows);
             res.send(result.rows);
         })
         .catch(err => {
@@ -63,6 +65,26 @@ router.get('/', (req, res) => {
         console.log("POST ERROR", error);
         res.sendStatus(500);
       });
+  });
+
+
+router.delete("/:id", rejectUnauthenticated, (req, res) => {
+    // endpoint functionality
+    const queryText = `
+      DELETE FROM tasks
+      WHERE id = $1
+      AND user_id = $2;
+    `;
+  
+    const values = [req.params.id, req.user.id];
+  
+    pool.query(queryText, values)
+      .then(result => {
+        res.sendStatus(204);
+      }).catch(err => {
+        console.log(err)
+        res.sendStatus(500);
+      })
   });
 
 module.exports = router;
