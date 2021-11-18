@@ -36,3 +36,11 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);
 });
+
+
+//function(s) to convert due date to x value, importance to y value, 
+//and then x & y values to priority value
+
+//first I need to make sure that user inputs are being transferred to a reducer
+//but, not to the DB. So I can manipulate that data/ add to prior to sending to DB
+
