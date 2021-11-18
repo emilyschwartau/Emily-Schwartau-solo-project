@@ -19,6 +19,10 @@ const deleteItem = (id) => {
   dispatch({type: 'DELETE_LIST_ITEM', payload: id});
 }
 
+const updateItem = (id) => {
+  dispatch({type: 'UPDATE_LIST_ITEM', payload: id});
+}
+
   return (
     <div className="container">
       <p>List View Page</p>
@@ -32,7 +36,7 @@ const deleteItem = (id) => {
                                             <h3>Task: {item.task}</h3>
                                             <h3>due date: {item.due_date}</h3>
                                             {user.id && <button onClick={() => deleteItem(item.id)}>DELETE</button>}
-                                            
+                                            {user.id && <button onClick={() => updateItem(item.id)}>COMPLETE TASK</button>}
                                         </div>
                                     
                                 </div>

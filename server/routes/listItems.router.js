@@ -87,6 +87,32 @@ router.delete("/:id", rejectUnauthenticated, (req, res) => {
       })
   });
 
+//update route
+router.put('/:id', (req, res) => {
+//     let id = req.params.id;
+//    console.log(id);
+
+    let queryText = `
+    UPDATE "tasks"
+    SET "completion_status" = true
+    WHERE "id" = $1
+    AND user_id = $2;
+    `
+    const values = [req.params.id, req.user.id];
+
+    pool.query(queryText, values).then(result => {
+        res.sendStatus(200);
+    }).catch(err => {
+        console.log(err);
+        res.sendStatus(500);
+    })
+
+});
+
+
+
+
+
 module.exports = router;
 
 //priority value calculations here??? move module.exports = router to the bottom of page?
