@@ -28,16 +28,35 @@ router.get('/', (req, res) => {
             //each row as a separate object, with all the columns as properties
             let taskArray = result.rows;
 
-            //let xValue=1;
-            let xValueArray=[];
             console.log('taskArray', taskArray);
             {taskArray.map(task => {
-              let xValue = (task.importance * .01) * (14); 
-              Object.assign(task, {xValue: xValue}) 
+              let xValue = (task.importance * .01) * (14);
+
+              const current = new Date();
+              const date = `${current.getMonth()+1}/${current.getDate()}/${current.getFullYear()}`;
+          
+              // To set two dates to two variables
+              //date1 is today's date, date2 is due date
+              let date1 = new Date(date);
+              let date2 = new Date(task.due_date);
+            
+              // To calculate the time difference of two dates
+              let DifferenceInTime = date2.getTime() - date1.getTime();
+            
+              // To calculate the no. of days between two dates
+              let DifferenceInDays = DifferenceInTime / (1000 * 3600 * 24);
+
+              let yValue = (14)-DifferenceInDays;
+
+              let priorityValue = xValue * yValue;
+
+              Object.assign(task, {xValue: xValue});
+              Object.assign(task, {yValue: yValue});
+              Object.assign(task, {priorityValue: priorityValue});
                 return (
-                    console.log('xValue', xValue)
-                    //xValueArray.push(xValue)
-                    //taskArray.push(xValue)
+                    //console.log('xValue', xValue)
+                    //console.log('yValue', yValue)
+                    console.log('priorityValue', priorityValue)
 
                 )
             })}
