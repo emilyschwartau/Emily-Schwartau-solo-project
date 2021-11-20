@@ -7,10 +7,15 @@ function ListViewPage() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  //retrieves listItems from the store
-  const listItems = useSelector(store => store.listItemsReducer);
 
+  const listItems = useSelector(store => store.listItemsReducer);
   const user = useSelector((store) => store.user);
+
+  //retrieves listItems from the store
+  
+  console.log('store.listItemsReducer', listItems);
+  console.log('listItems.taskArray', listItems.taskArray);
+  const taskArray = listItems.taskArray;
 
   //firing off actions to get data from DB
   useEffect(() => {
@@ -38,7 +43,7 @@ const handleSelectTask = (item) => {
     <div className="container">
       <p>List View Page</p>
 
-      {listItems.map(item => {
+      {/* {taskArray.map(item => {
                     return (
                        
                                 <div id="margin">
@@ -54,7 +59,7 @@ const handleSelectTask = (item) => {
                     );
                     
                 })} 
-
+ */}
 
     </div>
   );

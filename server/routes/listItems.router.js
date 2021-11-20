@@ -8,11 +8,9 @@ const {
     rejectUnauthenticated,
   } = require("../modules/authentication-middleware");
 
-/**
- * GET route for list items
- */
 
-//successful get route
+
+//successful get route for list items
 router.get('/', (req, res) => {
 
     const query = 
@@ -25,8 +23,32 @@ router.get('/', (req, res) => {
         //do math for x, y, and priority value here/ massage the data
             //handlePriorityValue();
             //have priority value and x & y sent somehow
-            console.log(result.rows);
-            res.send(result.rows);
+
+            //result.rows is an array of all rows in the task table, of the logged in user's tasks
+            //each row as a separate object, with all the columns as properties
+            let taskArray = result.rows;
+
+            //let xValue=1;
+            let xValueArray=[];
+            console.log('taskArray', taskArray);
+            {taskArray.map(task => {
+              let xValue = (task.importance * .01) * (14);  
+                return (
+                    //console.log('xValue', xValue)
+                    xValueArray.push(xValue)
+                )
+            })}
+
+            let databaseObject = {
+                taskArray: result.rows,
+                xValueArray: xValueArray
+
+            };
+            
+            
+
+            //res.send(taskArray);
+            res.send(databaseObject);
         })
         .catch(err => {
             console.log('ERROR: Get all tasks', err);
@@ -34,13 +56,6 @@ router.get('/', (req, res) => {
         })
 
 });
-
-// /**
-//  * POST route template
-//  */
-// router.post('/', (req, res) => {
-//   // POST route code here
-// });
 
 
 //successful post route
@@ -107,7 +122,7 @@ router.put('/:id', (req, res) => {
 
 });
 
-//update task details route
+//update task details route (not yet functional)
 router.put('edit/:id', (req, res) => {
 
     // let queryText = `
