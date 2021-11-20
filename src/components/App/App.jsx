@@ -20,6 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import AddTaskForm from '../AddTaskForm/AddTaskForm';
+import TaskDetails from '../TaskDetails/TaskDetails';
 
 import './App.css';
 
@@ -75,11 +76,17 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows AddTaskForm else shows LoginPage
             exact
             path="/add-task-form"
           >
             <AddTaskForm />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/details"
+          >
+            <TaskDetails />
           </ProtectedRoute>
 
           <Route

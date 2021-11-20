@@ -87,10 +87,8 @@ router.delete("/:id", rejectUnauthenticated, (req, res) => {
       })
   });
 
-//update route
+//update completion status route
 router.put('/:id', (req, res) => {
-//     let id = req.params.id;
-//    console.log(id);
 
     let queryText = `
     UPDATE "tasks"
@@ -108,6 +106,28 @@ router.put('/:id', (req, res) => {
     })
 
 });
+
+//update task details route
+router.put('edit/:id', (req, res) => {
+
+    // let queryText = `
+    // UPDATE "tasks"
+    // SET "completion_status" = true
+    // WHERE "id" = $1
+    // AND user_id = $2;
+    // `
+    const values = [req.params.id, req.user.id];
+
+    pool.query(queryText, values).then(result => {
+        res.sendStatus(200);
+    }).catch(err => {
+        console.log(err);
+        res.sendStatus(500);
+    })
+
+});
+
+
 
 
 
