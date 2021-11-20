@@ -21,6 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import AddTaskForm from '../AddTaskForm/AddTaskForm';
 import TaskDetails from '../TaskDetails/TaskDetails';
+import GraphPage from '../GraphPage/GraphPage';
 
 import './App.css';
 
@@ -73,6 +74,14 @@ function App() {
             path="/list-view"
           >
             <ListViewPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows ListViewPage else shows LoginPage
+            exact
+            path="/graph-view"
+          >
+            <GraphPage />
           </ProtectedRoute>
 
           <ProtectedRoute
