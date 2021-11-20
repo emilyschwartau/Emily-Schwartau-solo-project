@@ -4,6 +4,11 @@ import { useHistory } from 'react-router-dom';
 
 function ListViewPage() {
 
+  //firing off actions to get data from DB
+  useEffect(() => {
+    dispatch({ type: 'FETCH_LIST_ITEMS' });
+  }, []);
+
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -13,14 +18,11 @@ function ListViewPage() {
 
   //retrieves listItems from the store
   
-  console.log('store.listItemsReducer', listItems);
-  console.log('listItems.taskArray', listItems.taskArray);
+  //console.log('store.listItemsReducer', listItems);
+  //console.log('listItems.taskArray', listItems.taskArray);
   const taskArray = listItems.taskArray;
+  
 
-  //firing off actions to get data from DB
-  useEffect(() => {
-    dispatch({ type: 'FETCH_LIST_ITEMS' });
-  }, []);
 
 const deleteItem = (id) => {
   dispatch({type: 'DELETE_LIST_ITEM', payload: id});
@@ -42,8 +44,9 @@ const handleSelectTask = (item) => {
   return (
     <div className="container">
       <p>List View Page</p>
+      
 
-      {/* {taskArray.map(item => {
+      {taskArray?.map(item => {
                     return (
                        
                                 <div id="margin">
@@ -59,7 +62,7 @@ const handleSelectTask = (item) => {
                     );
                     
                 })} 
- */}
+
 
     </div>
   );
