@@ -15,15 +15,9 @@ function ListViewPage() {
 
   const listItems = useSelector(store => store.listItemsReducer);
   const user = useSelector((store) => store.user);
-
-  //retrieves listItems from the store
   
   console.log('store.listItemsReducer', listItems);
-  //console.log('listItems.taskArray', listItems.taskArray);
-  //const taskArray = listItems.taskArray;
   
-
-
 const deleteItem = (id) => {
   dispatch({type: 'DELETE_LIST_ITEM', payload: id});
 }
@@ -41,12 +35,18 @@ const handleSelectTask = (item) => {
   //console.log(movie);
 };
 
+const prioritizedData= [].concat(listItems)
+  .sort((a,b) => a.priorityValue < b.priorityValue ? 1 : -1);
+
+  console.log('prioritized data', prioritizedData);
+
   return (
     <div className="container">
       <p>List View Page</p>
       
-
-      {listItems?.map(item => {
+      
+      
+      {prioritizedData?.map(item => {
                     return (
                        
                                 <div id="margin">
@@ -54,6 +54,8 @@ const handleSelectTask = (item) => {
                                         <div id="card" key={item.id} onClick={() => handleSelectTask(item)}>
                                             <h3>Task: {item.task}</h3>
                                             <h3>due date: {item.due_date}</h3>
+                                        </div>
+                                        <div>
                                             {user.id && <button onClick={() => deleteItem(item.id)}>DELETE</button>}
                                             {user.id && <button onClick={() => updateItem(item.id)}>COMPLETE TASK</button>}
                                         </div>

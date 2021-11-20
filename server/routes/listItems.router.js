@@ -20,9 +20,6 @@ router.get('/', (req, res) => {
 
     pool.query(query, [req.user.id])
         .then( result => {
-        //do math for x, y, and priority value here/ massage the data
-            //handlePriorityValue();
-            //have priority value and x & y sent somehow
 
             //result.rows is an array of all rows in the task table, of the logged in user's tasks
             //each row as a separate object, with all the columns as properties
@@ -54,15 +51,11 @@ router.get('/', (req, res) => {
               Object.assign(task, {yValue: yValue});
               Object.assign(task, {priorityValue: priorityValue});
                 return (
-                    //console.log('xValue', xValue)
-                    //console.log('yValue', yValue)
                     console.log('priorityValue', priorityValue)
-
                 )
             })}
             
-            res.send(taskArray);
-            
+            res.send(taskArray);   
         })
         .catch(err => {
             console.log('ERROR: Get all tasks', err);
@@ -156,37 +149,4 @@ router.put('edit/:id', (req, res) => {
 
 });
 
-
-
-
-
-
-
 module.exports = router;
-
-//priority value calculations here??? move module.exports = router to the bottom of page?
-const handlePriorityValue = () => {
-    const current = new Date();
-    const date = `${current.getMonth()+1}/${current.getDate()}/${current.getFullYear()}`;
-
-    // To set two dates to two variables
-    //date1 is today's date, date2 is due date
-    let date1 = new Date(date);
-    let date2 = new Date(userInputs.due_date);
-  
-    // To calculate the time difference of two dates
-    let DifferenceInTime = date2.getTime() - date1.getTime();
-  
-    // To calculate the no. of days between two dates
-    let DifferenceInDays = DifferenceInTime / (1000 * 3600 * 24);
-
-    let xValue = (userInputs.importance * .01) * (14);
-    let yValue = (14)-DifferenceInDays;
-
-    priorityValue = xValue * yValue;
-
-        return (
-            priorityValue
-            
-        )
-}
