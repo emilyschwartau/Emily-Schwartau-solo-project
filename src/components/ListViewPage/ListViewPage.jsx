@@ -18,9 +18,9 @@ function ListViewPage() {
 
   //retrieves listItems from the store
   
-  //console.log('store.listItemsReducer', listItems);
+  console.log('store.listItemsReducer', listItems);
   //console.log('listItems.taskArray', listItems.taskArray);
-  const taskArray = listItems.taskArray;
+  //const taskArray = listItems.taskArray;
   
 
 
@@ -46,7 +46,7 @@ const handleSelectTask = (item) => {
       <p>List View Page</p>
       
 
-      {taskArray?.map(item => {
+      {listItems?.map(item => {
                     return (
                        
                                 <div id="margin">

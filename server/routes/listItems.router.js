@@ -32,23 +32,18 @@ router.get('/', (req, res) => {
             let xValueArray=[];
             console.log('taskArray', taskArray);
             {taskArray.map(task => {
-              let xValue = (task.importance * .01) * (14);  
+              let xValue = (task.importance * .01) * (14); 
+              Object.assign(task, {xValue: xValue}) 
                 return (
-                    //console.log('xValue', xValue)
-                    xValueArray.push(xValue)
+                    console.log('xValue', xValue)
+                    //xValueArray.push(xValue)
+                    //taskArray.push(xValue)
+
                 )
             })}
-
-            let databaseObject = {
-                taskArray: result.rows,
-                xValueArray: xValueArray
-
-            };
             
+            res.send(taskArray);
             
-
-            //res.send(taskArray);
-            res.send(databaseObject);
         })
         .catch(err => {
             console.log('ERROR: Get all tasks', err);
