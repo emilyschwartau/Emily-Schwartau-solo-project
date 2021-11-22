@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
 .nav {
   /* flex box layout */
   display: flex;
@@ -5,8 +7,10 @@
   align-items: center;
 
   margin: 0 0 30px;
-  background-color: #00acb0;
+  /* background-color: #00acb0; */
+  background-color: rgba(136, 35, 192, 0.8);
   overflow: hidden;
+  height: 85px;
 }
 
 .nav a {
@@ -14,7 +18,8 @@
 }
 
 .nav-title {
-  font-size: 24px;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 40px;
   font-weight: 700;
   color: #f2f2f2;
   padding-left: 10px;
@@ -24,7 +29,8 @@
 .navLink {
   display: inline-block;
   color: #f2f2f2;
-  background-color: #00acb0;
+  /* background-color: #00acb0; */
+  background-color: rgba(136, 35, 192, 0.8);
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
@@ -38,5 +44,10 @@
 }
 
 .navLink:hover {
-  background-color: #008183;
+  /* background-color: #008183; */
+  background-color: rgba(136, 35, 192, 0.8);
+}
+
+#infoIcon {
+  padding: 15px;
 }

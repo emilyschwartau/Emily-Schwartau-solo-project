@@ -3,14 +3,25 @@ import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import { useSelector } from 'react-redux';
+import { Info } from 'react-feather';
+import { useHistory } from 'react-router-dom';
+
 
 function Nav() {
   const user = useSelector((store) => store.user);
 
+  const history = useHistory();
+
+  function handleAboutClick () {
+    history.push('about');
+  }
+
+
+
   return (
     <div className="nav">
-      <Link to="/home">
-        <h2 className="nav-title">Prime Solo Project</h2>
+      <Link to="/login">
+        <h2 className="nav-title">Task Matrix</h2>
       </Link>
       <div>
         {/* If no user is logged in, show these links */}
@@ -36,10 +47,22 @@ function Nav() {
           </>
         )}
 
-        <Link className="navLink" to="/about">
+      
+        {/* <Link className="navLink" to="/about">
           About
-        </Link>
+        </Link> */}
+
+        
+          <span id="infoIcon" onClick={() => handleAboutClick()}>
+              <Info color='#ffffff' size="40" 
+              
+              
+              /> 
+          </span>
+
+
       </div>
+      
     </div>
   );
 }

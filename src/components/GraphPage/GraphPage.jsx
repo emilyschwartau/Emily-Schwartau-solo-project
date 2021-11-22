@@ -66,7 +66,7 @@ function GraphPage() {
 
     return(
         <>
-        <h1>Graph goes here!</h1>
+        
         <div id="graph">
             <Scatter id="canvas"
                 const data = {{
@@ -108,16 +108,39 @@ function GraphPage() {
                         legend: {
                             display: false
                         },
-                        autocolors: false,
                         annotation: {
                             annotations: {
                                 box1: {
                                     type: 'box',
-                                    xMin: 1,
-                                    xMax: 2,
-                                    yMin: 1,
-                                    yMax: 2,
-                                    backgroundColor: 'rgba(255, 99, 132, 0.25)'
+                                    xMin: 0,
+                                    xMax: 7,
+                                    yMin: 0,
+                                    yMax: 7,
+                                    backgroundColor: 'rgba(248, 20, 20, 0.79)'
+                                },
+                                box2: {
+                                    type: 'box',
+                                    xMin: 7,
+                                    xMax: 14,
+                                    yMin: 7,
+                                    yMax: 14,
+                                    backgroundColor: 'rgba(0, 194, 4, 0.85)'
+                                },
+                                box3: {
+                                    type: 'box',
+                                    xMin: 0,
+                                    xMax: 7,
+                                    yMin: 7,
+                                    yMax: 14,
+                                    backgroundColor: 'rgba(9, 22, 199, 0.71)'
+                                },
+                                box4: {
+                                    type: 'box',
+                                    xMin: 7,
+                                    xMax: 14,
+                                    yMin: 0,
+                                    yMax: 7,
+                                    backgroundColor: 'rgba(225, 121, 34, 0.69)'
                                 }
                             }
                         }

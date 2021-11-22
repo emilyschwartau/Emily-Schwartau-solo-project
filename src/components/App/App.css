@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&family=Permanent+Marker&display=swap');
+
 html,
 body,
 #react-root {
@@ -5,7 +8,9 @@ body,
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+  font-family: 'Patrick Hand SC', cursive;
+
   margin: 0px;
 }
 
@@ -30,13 +35,16 @@ Button
   display: inline-block;
   padding: 10px 20px;
   border-color: #014041;
-  border-width: 1px 1px 3px;
+  border-width: 1px 1px 1px;
   border-radius: 4px;
-  background-color: #00acb0;
+  /* background-color: #00acb0; */
+  background-color: rgba(136, 35, 192, 0.8);
   color: #f8f8f8;
   font-size: 1.1rem;
   outline: 0;
   cursor: pointer;
+  font-family: 'Patrick Hand SC', cursive;
+
 }
 
 .btn_sizeMin {
@@ -55,7 +63,8 @@ Button
 }
 
 .btn:hover {
-  background-color: #008183;
+  /* background-color: #008183; */
+  background-color: rgba(136, 35, 192, 0.8);
   text-decoration: none;
 }
 
@@ -72,8 +81,10 @@ Button
 
 .btn_asLink:hover {
   background-color: transparent;
-  border-color: #008183;
-  color: #008183;
+  /* border-color: #008183; */
+  border-color: rgba(136, 35, 192, 0.8) ;
+  /* color: #008183; */
+  color: rgba(136, 35, 192, 0.8);
 }
 
 /* --------------------------------------------------------------------------------
@@ -104,9 +115,45 @@ Form Treatment
   background-color: #efefef;
   border-radius: 3px;
   box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
+
 }
 
 input {
   margin: 5px;
   margin-bottom: 10px;
+}
+
+#loginText {
+  text-align: center;
+}
+
+#username {
+  padding-left: 75px;
+  padding-bottom: 10px;
+  
+}
+
+#password {
+  padding-left: 75px;
+  padding-bottom: 10px;
+}
+
+#loginButton {
+  padding-left: 125px;
+}
+
+#loginForm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#formDiv {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
