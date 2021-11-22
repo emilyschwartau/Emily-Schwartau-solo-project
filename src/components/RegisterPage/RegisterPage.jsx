@@ -7,7 +7,7 @@ function RegisterPage() {
   const history = useHistory();
 
   return (
-    <div>
+    <div id="registerForm">
       <RegisterForm />
 
       <center>
@@ -20,6 +20,7 @@ function RegisterPage() {
         >
           Login
         </button>
+        <p>&copy; Emily Schwartau</p>
       </center>
     </div>
   );

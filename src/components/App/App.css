@@ -129,10 +129,20 @@ input {
   text-align: center;
 }
 
+#registerText {
+  text-align: center;
+}
+
 #username {
   padding-left: 75px;
   padding-bottom: 10px;
   
+}
+
+#registerUsername {
+  padding-left: 75px;
+  padding-bottom: 10px; 
+
 }
 
 #password {
@@ -140,7 +150,16 @@ input {
   padding-bottom: 10px;
 }
 
+#registerPassword {
+  padding-left: 75px;
+  padding-bottom: 10px;
+}
+
 #loginButton {
+  padding-left: 125px;
+}
+
+#registerButton {
   padding-left: 125px;
 }
 
@@ -151,6 +170,14 @@ input {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   
+}
+
+#registerForm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 /* #formDiv {
