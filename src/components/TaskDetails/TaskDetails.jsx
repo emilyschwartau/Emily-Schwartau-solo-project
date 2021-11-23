@@ -8,6 +8,10 @@ function TaskDetails () {
 
     const history = useHistory();
 
+    function editTask () {
+        history.push('/edit');  
+    }
+
     return (
         <section>
         <h1>Task Details</h1>
@@ -22,6 +26,7 @@ function TaskDetails () {
                 <h2>Importance: {selectedTask.importance}</h2>
                 <h2>Time requirement: {selectedTask.time_requirement}</h2>
                 <h2>Completion Status: {selectedTask.completion_status.toString()}</h2>
+                <button onClick={() => editTask(selectedTask.id)}>Edit Task</button>
 
 
             </>

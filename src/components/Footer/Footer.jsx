@@ -68,8 +68,12 @@ function Footer() {
           return (
             <div>task details page / logged in</div>
           )
-        }
-        else {
+        } else if (user.id && history.location.pathname === "/edit") {
+          return (
+            <div>edit task page / logged in</div>
+          )
+          
+        }else {
           return (
             <div>login after logging out</div>
           )

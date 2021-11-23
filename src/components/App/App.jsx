@@ -22,6 +22,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import AddTaskForm from '../AddTaskForm/AddTaskForm';
 import TaskDetails from '../TaskDetails/TaskDetails';
 import GraphPage from '../GraphPage/GraphPage';
+import EditPage from '../EditPage/EditPage';
 
 import './App.css';
 
@@ -96,6 +97,13 @@ function App() {
             path="/details"
           >
             <TaskDetails />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/edit"
+          >
+            <EditPage />
           </ProtectedRoute>
 
           <Route
