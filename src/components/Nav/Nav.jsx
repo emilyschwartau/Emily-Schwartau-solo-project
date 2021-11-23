@@ -13,7 +13,7 @@ function Nav() {
   const history = useHistory();
 
   function handleAboutClick () {
-    history.push('about');
+    history.push('/about');
   }
 
 

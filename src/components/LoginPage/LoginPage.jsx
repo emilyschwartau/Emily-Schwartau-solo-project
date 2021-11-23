@@ -21,6 +21,7 @@ function LoginPage() {
         </button>
         <p>&copy; Emily Schwartau</p>
       </center>
+   
     </div>
   );
 }
