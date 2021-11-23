@@ -43,7 +43,7 @@ function Footer() {
         } else if (user.id === undefined && history.location.pathname === "/registration") {
           return(
             <div>registration / not logged in</div>
-          )
+          )   
         } else if (user.id && history.location.pathname === "/about") {
           return (
             <div>about page / logged in</div>
@@ -67,6 +67,11 @@ function Footer() {
         } else if (user.id && history.location.pathname === "/details") {
           return (
             <div>task details page / logged in</div>
+          )
+        }
+        else {
+          return (
+            <div>login after logging out</div>
           )
         }
       })()}
