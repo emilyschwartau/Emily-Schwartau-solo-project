@@ -94,7 +94,7 @@ function App() {
 
           <ProtectedRoute
             exact
-            path="/details"
+            path="/details/:id"
           >
             <TaskDetails />
           </ProtectedRoute>

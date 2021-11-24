@@ -64,6 +64,30 @@ router.get('/', (req, res) => {
 
 });
 
+// GET task details 
+router.get('/:id', (req, res) => {
+    // get the task id from the path param
+    
+    //console.log('req.params.id', req.params.id)
+
+    const query = `
+    SELECT * FROM tasks 
+    WHERE "tasks".id = $1;
+    `;
+
+    const values = [req.params.id];
+
+    pool
+        .query(query, values )
+        .then((result) => {
+            console.log("result.rows", result.rows);
+            res.send(result.rows); // single row
+        })
+        .catch((err) => {
+            console.log("ERROR: Get details", err);
+            res.sendStatus(500);
+        });
+});
 
 //successful post route
   router.post("/", rejectUnauthenticated, (req, res) => {

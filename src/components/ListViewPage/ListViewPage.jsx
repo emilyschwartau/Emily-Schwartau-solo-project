@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { useState } from 'react';
 
 function ListViewPage() {
 
@@ -11,6 +12,8 @@ function ListViewPage() {
 
   const dispatch = useDispatch();
   const history = useHistory();
+
+  //let [currentStudent, setCurrentStudent] = useState({});
 
 
   const listItems = useSelector(store => store.listItemsReducer);
@@ -27,11 +30,11 @@ const updateItem = (id) => {
 }
 
 const handleSelectTask = (item) => {
-  // store selected movie object in Redux
+  // store selected task object in Redux
   dispatch({ type: 'SET_SELECTED_TASK', payload: item }); 
 
   // go to details view
-  history.push('/details');
+  history.push(`/details/${item.id}`);
   //console.log(movie);
 };
 
