@@ -48,26 +48,28 @@ const prioritizedData= [].concat(listItems)
       <p>List View Page</p>
       
       
-      
+      <ol> 
       {prioritizedData?.map(item => {
                     return (
-                       
+                      <li>
                                 <div id="margin">
                                     
                                         <div id="card" key={item.id} onClick={() => handleSelectTask(item)}>
                                             <h3>Task: {item.task}</h3>
                                             <h3>due date: {item.due_date}</h3>
                                         </div>
+                                        
                                         <div>
                                             {user.id && <button onClick={() => deleteItem(item.id)}>DELETE</button>}
                                             {user.id && <button onClick={() => updateItem(item.id)}>COMPLETE TASK</button>}
                                         </div>
                                     
                                 </div>
+                        </li>
                     );
                     
                 })} 
-
+        </ol>
 
     </div>
   );
