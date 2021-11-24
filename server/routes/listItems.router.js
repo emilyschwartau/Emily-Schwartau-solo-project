@@ -154,15 +154,24 @@ router.put('/:id', (req, res) => {
 });
 
 //update task details route (not yet functional)
-router.put('edit/:id', (req, res) => {
+router.put('/edit/:id', (req, res) => {
+    //const idToUpdate = Number(req.body.id);
 
-    // let queryText = `
-    // UPDATE "tasks"
-    // SET "completion_status" = true
-    // WHERE "id" = $1
-    // AND user_id = $2;
-    // `
-    const values = [req.params.id, req.user.id];
+    const updatedTask = req.body;
+    
+    let queryText = `
+    UPDATE "tasks"
+    SET task = $1,
+    due_date = $2,
+    importance = $3,
+    time_requirement = $4,
+    notes = $5
+    WHERE "id" = $6;
+    `
+    //const values = [req.params.id, req.user.id];
+
+    const values = [updatedTask.task, updatedTask.due_date, updatedTask.importance, updatedTask.time_requirement, updatedTask.notes, req.params.id];
+
 
     pool.query(queryText, values).then(result => {
         res.sendStatus(200);
@@ -174,3 +183,33 @@ router.put('edit/:id', (req, res) => {
 });
 
 module.exports = router;
+
+//EDIT example
+// router.put('/edit/:id', (req, res) => {
+
+//     const idToUpdate = Number(req.body.id);
+//     const queryText = `
+//     UPDATE "ingredients" 
+//     SET food_name = $1, 
+//     expiration_date = $2,
+//     status = 'storage',
+//     food_type_id = $3,
+//     location_id = $4
+//     WHERE id= $5;`
+
+//     pool.query(queryText, [
+//         req.body.food_name,
+//         req.body.expiration_date,
+//         // action.payload.status,
+//         req.body.food_type_id,
+//         req.body.location_id,
+//         idToUpdate])
+//         .then((result) => {
+//             res.sendStatus(200);
+//         })
+//         .catch((error) => {
+//             console.log(`error editing update query`, error);
+//             res.sendStatus(500);
+//         });
+
+// });

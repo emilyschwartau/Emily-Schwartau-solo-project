@@ -24,7 +24,15 @@ function TaskDetails () {
 
 
     // click edit to go to the edit page and bring id with
-    const handleEdit = () => history.push(`/edit/${id}`);
+    function handleEdit () {
+        
+        dispatch({ type: 'SET_EDIT_ITEM', payload: selectedTask }); 
+    
+        history.push(`/edit/${id}`);
+
+    }
+    
+    
 
 
     return (

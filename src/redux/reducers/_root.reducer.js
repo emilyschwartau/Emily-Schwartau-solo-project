@@ -5,6 +5,7 @@ import listItemsReducer from './listItems.reducer';
 import userInputsReducer from './userInputs.reducer';
 import selectedTaskReducer from './selectedTask.reducer';
 import pathReducer from './pathReducer';
+import editTaskReducer from './editTask.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   userInputsReducer,
   selectedTaskReducer,
   pathReducer,
+  editTaskReducer,
 });
 
 export default rootReducer;
