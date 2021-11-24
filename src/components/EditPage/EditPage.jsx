@@ -1,16 +1,34 @@
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router";
-import { useState, useEffect } from "react";
+import { useParams, useHistory, useLocation } from "react-router-dom";
 
 function EditPage () {
+    
+    const { id } = useParams();
+
+    //console.log(useParams());
 
     //initialize hooks 
     const dispatch = useDispatch();
     const history = useHistory();
-    const editTask = useSelector((store) => store.editTaskReducer);
+    const location = useLocation();
+    
 
     //useEffect here?? to refresh page??
     
+    //console.log("id", id);
+
+   // on page load, fetch the selected and save in the store
+   // combined with the url params, this lets the details survive a page refresh
+   useEffect(() => {
+       dispatch({ type: "FETCH_EDIT_ITEM", payload: id });
+       // send the current location to the store
+       dispatch({ type: "CHANGE_PAGE", payload: location.pathname });
+   }, []);
+
+   const editTask = useSelector((store) => store.editTaskReducer);
+
+   console.log("editTask", editTask);
 
     //check if changing as typing 
     function handleChange(event, property) {
@@ -29,7 +47,7 @@ function EditPage () {
         })
         
         //need to have /details/id?
-        history.push('/details');
+        history.push(`/details/${id}`);
     }
 
     //CANCEL- works ---- ADD SNACKBAR 
@@ -37,7 +55,7 @@ function EditPage () {
         history.push('/details');
     }
 
-
+    console.log("editTask", editTask);
 
     return(
         <div id='container'>
@@ -73,8 +91,8 @@ function EditPage () {
                         onChange={(event) => handleChange(event, 'Time Requirement')}
                     />
 
-                    <textarea placeholder='Notes' rows="4" cols="50" value={editTask.notes}
-                    onChange={(event) => handleChange(event, 'Notes')}>
+                    <textarea placeholder='notes' rows="4" cols="50" value={editTask.notes}
+                    onChange={(event) => handleChange(event, 'notes')}>
 
                     </textarea>
 

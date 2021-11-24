@@ -154,8 +154,10 @@ router.put('/:id', (req, res) => {
 });
 
 //update task details route (not yet functional)
+//need /edit/id??
 router.put('/edit/:id', (req, res) => {
-    //const idToUpdate = Number(req.body.id);
+    const idToUpdate = req.params.id;
+    //const { id } = req.params;
 
     const updatedTask = req.body;
     
@@ -167,10 +169,10 @@ router.put('/edit/:id', (req, res) => {
     time_requirement = $4,
     notes = $5
     WHERE "id" = $6;
-    `
+    `;
     //const values = [req.params.id, req.user.id];
 
-    const values = [updatedTask.task, updatedTask.due_date, updatedTask.importance, updatedTask.time_requirement, updatedTask.notes, req.params.id];
+    const values = [updatedTask.task, updatedTask.due_date, updatedTask.importance, updatedTask.time_requirement, updatedTask.notes, idToUpdate];
 
 
     pool.query(queryText, values).then(result => {
@@ -180,7 +182,7 @@ router.put('/edit/:id', (req, res) => {
         res.sendStatus(500);
     })
 
-});
+});//end edit task page put
 
 module.exports = router;
 

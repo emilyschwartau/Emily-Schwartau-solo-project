@@ -12,7 +12,7 @@ function TaskDetails () {
      const history = useHistory();
      const location = useLocation();
 
-         // on page load, fetch the movie genres and save in the store
+    // on page load, fetch the selected and save in the store
     // combined with the url params, this lets the details survive a page refresh
     useEffect(() => {
         dispatch({ type: "FETCH_SELECTED_TASK", payload: id });
@@ -28,7 +28,7 @@ function TaskDetails () {
         
         dispatch({ type: 'SET_EDIT_ITEM', payload: selectedTask }); 
     
-        history.push(`/edit/${id}`);
+        history.push(`/edit/${selectedTask.id}`);
 
     }
     
