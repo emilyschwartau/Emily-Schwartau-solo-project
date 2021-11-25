@@ -50,16 +50,16 @@ function EditPage () {
         history.push(`/details/${id}`);
     }
 
-    //CANCEL- works ---- ADD SNACKBAR 
+    
     const cancelClick = (event) => {
-        history.push('/details');
+        history.push(`/details/${id}`);
     }
 
     console.log("editTask", editTask);
 
     return(
         <div id='container'>
-            <h1>edit Task</h1>
+            <h1>Edit Task</h1>
             <div id='form'>
                 <form onSubmit={(event) => handleSubmit(event, editTask)}>
 
@@ -73,7 +73,7 @@ function EditPage () {
                     <input
                         placeholder="due_date"
                         type="date"
-                        value={editTask.due_date}
+                        value={editTask.due_date?.split(`T`)[0]}
                         onChange={(event) => handleChange(event, 'due_date')}
                     />
 
@@ -85,10 +85,10 @@ function EditPage () {
                     />
 
                     <input
-                        placeholder="Time Requirement"
+                        placeholder="time_requirement"
                         type="int"
                         value={editTask.time_requirement}
-                        onChange={(event) => handleChange(event, 'Time Requirement')}
+                        onChange={(event) => handleChange(event, 'time_requirement')}
                     />
 
                     <textarea placeholder='notes' rows="4" cols="50" value={editTask.notes}

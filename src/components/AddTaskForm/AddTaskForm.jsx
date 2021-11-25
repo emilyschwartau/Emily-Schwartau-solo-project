@@ -20,7 +20,11 @@ function AddTaskForm () {
 
     const handleDueDateChange = (event) => {
         setNewTask({...newTask, due_date: event.target.value})
+
+        //setNewTask({...newTask, due_date: new Date(event.target.value).toLocaleDateString()})
     }
+
+   
 
     const handleImportanceChange = (event) => {
         setNewTask({...newTask, importance: event.target.value})
@@ -108,7 +112,7 @@ function AddTaskForm () {
         <form onSubmit={addNewTask} >
 
             <input placeholder='Task' type='text' value={newTask.task} onChange={handleTaskChange} />
-            <input placeholder='Due Date' type='date' value={newTask.due_date} onChange={handleDueDateChange} />
+            <input placeholder='Due Date' type='date' value={newTask.due_date.toString()} onChange={handleDueDateChange} />
             <input placeholder='Importance' type='int' value={newTask.importance} onChange={handleImportanceChange} />
             <input placeholder='Time Requirement' type='int' value={newTask.time_requirement} onChange={handleTimeRequirementChange} />
             <textarea placeholder='Notes' rows="4" cols="50" value={newTask.notes} onChange={handleNotesChange}></textarea>
