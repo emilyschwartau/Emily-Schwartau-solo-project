@@ -24,6 +24,7 @@ import TaskDetails from '../TaskDetails/TaskDetails';
 import GraphPage from '../GraphPage/GraphPage';
 import EditPage from '../EditPage/EditPage';
 import OverdueTaskArchive from '../OverdueTaskArchive/OverdueTaskArchive';
+import CompletedTasksArchive from '../CompletedTasksArchive/CompletedTasksArchive';
 
 import './App.css';
 
@@ -112,6 +113,13 @@ function App() {
             path="/overdue-tasks"
           >
             <OverdueTaskArchive />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/completed-tasks"
+          >
+            <CompletedTasksArchive />
           </ProtectedRoute>
 
           <Route
