@@ -38,7 +38,37 @@ const handleSelectTask = (item) => {
   //console.log(movie);
 };
 
-const prioritizedData= [].concat(listItems)
+const current = new Date();
+const date = `${current.getMonth()+1}/${current.getDate()}/${current.getFullYear()}`;
+
+// To set two dates to two variables
+//date1 is today's date, date2 is due date
+let currentDate = new Date(date);
+console.log(currentDate);
+let today = currentDate.getTime();
+console.log("today", today);
+
+//map through listItems & change them to numbers & push them to new array
+
+let filteredArray = [];
+console.log("overdue", filteredArray);
+
+function filter() {
+    listItems.map( item => {
+        let dueDate = new Date(item.due_date);
+        let dueDateNumber = dueDate.getTime();
+        if (dueDateNumber > currentDate && item.completion_status === false) {
+           filteredArray.push(item); 
+        }
+        return (
+            console.log("filteredArray", filteredArray)
+        )
+    })
+}
+
+filter();
+
+const prioritizedData= [].concat(filteredArray)
   .sort((a,b) => a.priorityValue < b.priorityValue ? 1 : -1);
 
   console.log('prioritized data', prioritizedData);

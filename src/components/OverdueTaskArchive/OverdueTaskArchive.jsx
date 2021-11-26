@@ -54,7 +54,7 @@ function OverdueTaskArchive () {
         listItems.map( item => {
             let dueDate = new Date(item.due_date);
             let dueDateNumber = dueDate.getTime();
-            if (dueDateNumber < currentDate) {
+            if (dueDateNumber < currentDate && item.completion_status === false) {
                overDueArray.push(item); 
             }
             return (

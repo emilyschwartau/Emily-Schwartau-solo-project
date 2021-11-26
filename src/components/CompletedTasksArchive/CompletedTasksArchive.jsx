@@ -62,11 +62,6 @@ function CompletedTasksArchive () {
         }
     
         filter();
-    
-        const prioritizedData= [].concat(completedArray)
-        .sort((a,b) => a.priorityValue < b.priorityValue ? 1 : -1);
-    
-        console.log('prioritized data', prioritizedData);
 
     return (
         <div className="container">
