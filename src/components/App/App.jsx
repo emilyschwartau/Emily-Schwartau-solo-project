@@ -23,6 +23,7 @@ import AddTaskForm from '../AddTaskForm/AddTaskForm';
 import TaskDetails from '../TaskDetails/TaskDetails';
 import GraphPage from '../GraphPage/GraphPage';
 import EditPage from '../EditPage/EditPage';
+import OverdueTaskArchive from '../OverdueTaskArchive/OverdueTaskArchive';
 
 import './App.css';
 
@@ -104,6 +105,13 @@ function App() {
             path="/edit/:id"
           >
             <EditPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/overdue-tasks"
+          >
+            <OverdueTaskArchive />
           </ProtectedRoute>
 
           <Route

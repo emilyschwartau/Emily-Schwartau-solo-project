@@ -6,17 +6,10 @@ function EditPage () {
     
     const { id } = useParams();
 
-    //console.log(useParams());
-
     //initialize hooks 
     const dispatch = useDispatch();
     const history = useHistory();
     const location = useLocation();
-    
-
-    //useEffect here?? to refresh page??
-    
-    //console.log("id", id);
 
    // on page load, fetch the selected and save in the store
    // combined with the url params, this lets the details survive a page refresh
@@ -46,7 +39,6 @@ function EditPage () {
             payload: editTask
         })
         
-        //need to have /details/id?
         history.push(`/details/${id}`);
     }
 
@@ -96,7 +88,6 @@ function EditPage () {
 
                     </textarea>
 
-                    {/* need to have an onClick to handleSubmit??? */}
                     <button type="submit" >Update</button>
 
                     <button type="button" onClick={cancelClick}>Cancel</button>
