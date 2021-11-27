@@ -1,4 +1,5 @@
-import React from 'react';
+//import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
@@ -16,55 +17,118 @@ function Nav() {
     history.push('/about');
   }
 
+  const [path, setPath] = useState('');
+
+  history.listen ((location, action) => {
+    console.log(location, action);
+    setPath (location);
+  })
+
 
 
   return (
-    <div className="nav">
-      <Link to="/login">
-        <h2 className="nav-title">Task Matrix</h2>
-      </Link>
-      <div>
-        {/* If no user is logged in, show these links */}
-        {user.id === null &&
-          // If there's no user, show login/registration links
-          <Link className="navLink" to="/login">
-            Login / Register
-          </Link>
-        }
-
-        {/* If a user is logged in, show these links */}
-        {user.id && (
-          <>
-            <Link className="navLink" to="/user">
-              Home
+    <header className="nav">
+    {(() => {
+      if (user.id === undefined && history.location.pathname === "/about") {
+        return (
+          <div>
+            <Link to="/login">
+              <h2 className="nav-title">Task Matrix</h2>
             </Link>
-
-            <Link className="navLink" to="/list-view">
-              List View
-            </Link>
-
-            <LogOutButton className="navLink" />
-          </>
-        )}
-
-      
-        {/* <Link className="navLink" to="/about">
-          About
-        </Link> */}
-
+          </div>
+        )
+      } else if (user.id === undefined && history.location.pathname === "/login") {
+        return (
+          <div></div>
+        )
+      } else if (user.id === undefined && history.location.pathname === "/registration") {
+        return(
+          <div></div>
+        )   
+      } else if (user.id && history.location.pathname === "/about") {
+        return (
+          <div>about page / logged in</div>
+        )
+      } else if (user.id && history.location.pathname === "/user") {
+        return (
+          <div>home page / logged in</div>
+        )
+      } else if (user.id && history.location.pathname === "/list-view") {
+        return (
+          <div>list view page / logged in</div>
+        )
+      } else if (user.id && history.location.pathname === "/graph-view") {
+        return (
+          <div>list view page / logged in</div>
+        )
+      } else if (user.id && history.location.pathname === "/add-task-form") {
+        return (
+          <div>add task form page / logged in</div>
+        )
+      } else if (user.id && history.location.pathname === "/details") {
+        return (
+          <div>task details page / logged in</div>
+        )
+      } else if (user.id && history.location.pathname === "/edit") {
+        return (
+          <div>edit task page / logged in</div>
+        )
         
-          <span id="infoIcon" onClick={() => handleAboutClick()}>
-              <Info color='#ffffff' size="40" 
-              
-              
-              /> 
-          </span>
+      }else {
+        return (
+          <div>login after logging out</div>
+        )
+      }
+    })()}
 
-
-      </div>
-      
-    </div>
+  </header>
   );
 }
 
 export default Nav;
+
+{/* <div className="nav">
+<Link to="/login">
+  <h2 className="nav-title">Task Matrix</h2>
+</Link>
+<div> */}
+  {/* If no user is logged in, show these links */}
+  // {user.id === null &&
+  //   // If there's no user, show login/registration links
+  //   <Link className="navLink" to="/login">
+  //     Login / Register
+  //   </Link>
+  // }
+
+  {/* If a user is logged in, show these links */}
+  // {user.id && (
+  //   <>
+  //     <Link className="navLink" to="/user">
+  //       Home
+  //     </Link>
+
+  //     <Link className="navLink" to="/list-view">
+  //       List View
+  //     </Link>
+
+  //     <LogOutButton className="navLink" />
+  //   </>
+  // )}
+
+
+  {/* <Link className="navLink" to="/about">
+    About
+  </Link> */}
+
+  
+//     <span id="infoIcon" onClick={() => handleAboutClick()}>
+//         <Info color='#ffffff' size="40" 
+        
+        
+//         /> 
+//     </span>
+
+
+// </div>
+
+// </div>
