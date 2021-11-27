@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 //import { Info } from 'react-feather';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import Button from '@mui/material/Button';
 
 
 
@@ -28,21 +29,26 @@ function Footer() {
     setPath (location);
   })
 
+  function aboutLoginClick() {
+    history.push('/login');
+  }
 
   return (
     <footer>
       {(() => {
         if (user.id === undefined && history.location.pathname === "/about") {
           return (
-            <div>about page / not logged in</div>
+            <div id="aboutLoginBtn">
+              <Button variant="contained" size="large" onClick={() => aboutLoginClick()}>Log In</Button>
+            </div>
           )
         } else if (user.id === undefined && history.location.pathname === "/login") {
           return (
-            <div>login / not logged in</div>
+            <div></div>
           )
         } else if (user.id === undefined && history.location.pathname === "/registration") {
           return(
-            <div>registration / not logged in</div>
+            <div></div>
           )   
         } else if (user.id && history.location.pathname === "/about") {
           return (
