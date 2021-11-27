@@ -48,10 +48,31 @@ console.log(currentDate);
 let today = currentDate.getTime();
 console.log("today", today);
 
-//map through listItems & change them to numbers & push them to new array
+let overDueArray = [];
+console.log("overdue", overDueArray);
+
+function overdueFilter() {
+    listItems.map( item => {
+        let dueDate = new Date(item.due_date);
+        let dueDateNumber = dueDate.getTime();
+        if (dueDateNumber < currentDate && item.completion_status === false) {
+           overDueArray.push(item); 
+        }
+        return (
+            console.log("overDueArray", overDueArray)
+        )
+    })
+}
+
+overdueFilter();
+
+let overdueCount = overDueArray.length;
+console.log(overdueCount);
+
+
 
 let filteredArray = [];
-console.log("overdue", filteredArray);
+console.log("filteredArray", filteredArray);
 
 function filter() {
     listItems.map( item => {
@@ -74,8 +95,26 @@ const prioritizedData= [].concat(filteredArray)
   console.log('prioritized data', prioritizedData);
 
   return (
+    <>
+    <div className="HeaderFooterSpace"></div>
     <div className="container">
-      <p>List View Page</p>
+    <p>List View Page</p>
+    <div>
+    {(() => {
+      if (overdueCount === 1) {
+        return (
+        <p>you have {overdueCount} overdue Task!</p>
+        )
+      } else if (overdueCount > 0) {
+        return (
+          <p>you have {overdueCount} overdue Tasks!</p>
+        )
+      }
+    })()}
+    </div>
+
+
+      
       
       
       <ol> 
@@ -102,6 +141,8 @@ const prioritizedData= [].concat(filteredArray)
         </ol>
 
     </div>
+    <div className="HeaderFooterSpace"></div>
+    </>
   );
 }
 
