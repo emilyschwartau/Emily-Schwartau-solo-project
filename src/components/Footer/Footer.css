@@ -73,3 +73,13 @@ footer {
   margin-right: 60px;
   float:right ;
 }
+
+#GraphAddTaskIcon {
+  float: right;
+  margin-right: 100px;
+}
+
+#graphListIcon {
+  margin-left: 60px;
+  float:left ;
+}

@@ -85,8 +85,16 @@ function Nav() {
         )
       } else if (user.id && history.location.pathname === "/graph-view") {
         return (
-          <div>list view page / logged in</div>
-        )
+          <>
+          <div>
+            <Link to="/login">
+              <h2 className="nav-title">Graph View</h2>
+            </Link>
+          </div>
+          <span id="infoIcon" onClick={() => handleAboutClick()}>
+            <Info color='#ffffff' size="40" /> 
+          </span>
+          </>        )
       } else if (user.id && history.location.pathname === "/add-task-form") {
         return (
           <div>add task form page / logged in</div>

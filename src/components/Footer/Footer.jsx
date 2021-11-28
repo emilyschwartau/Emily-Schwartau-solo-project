@@ -115,8 +115,19 @@ function Footer() {
           )
         } else if (user.id && history.location.pathname === "/graph-view") {
           return (
-            <div>list view page / logged in</div>
-          )
+            <div id="aboutLoggedIn">
+
+            <div id="GraphAddTaskIcon">
+            <span id="addTaskIcon" onClick={() => addClick()}>
+                <PlusCircle color='#ffffff' size="40" /> 
+              </span>
+            </div>
+            <div id="graphListIcon">
+              <span id="listIcon" onClick={() => listClick()}>
+                <List color='#ffffff' size="40" /> 
+              </span>
+            </div>
+            </div>           )
         } else if (user.id && history.location.pathname === "/add-task-form") {
           return (
             <div>add task form page / logged in</div>

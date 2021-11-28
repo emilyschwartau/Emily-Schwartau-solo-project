@@ -66,8 +66,9 @@ function GraphPage() {
 
     return(
         <>
-        
+        {/* <div className="HeaderFooterSpace"></div> */}
         <div id="graph">
+        <div className="HeaderFooterSpaceGraph"></div>
             <Scatter id="canvas"
                 const data = {{
                     datasets: [...getScatterData()
