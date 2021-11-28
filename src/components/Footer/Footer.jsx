@@ -141,8 +141,19 @@ function Footer() {
             </div>           )
         } else if (user.id && history.location.pathname === "/add-task-form") {
           return (
-            <div>add task form page / logged in</div>
-          )
+            <div id="aboutLoggedIn">
+            <div id="aboutGridIcon">
+              <span id="addGridIcon" onClick={() => gridClick()}>
+                <Grid color='#ffffff' size="40" /> 
+              </span>
+            </div>
+ 
+            <div id="addListIcon">
+              <span id="listIcon" onClick={() => listClick()}>
+                <List color='#ffffff' size="40" /> 
+              </span>
+            </div>
+            </div>          )
         } else if (user.id && history.location.pathname === "/details") {
           return (
             <div>task details page / logged in</div>

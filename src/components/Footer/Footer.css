@@ -88,3 +88,13 @@ footer {
   margin-left: 60px;
   float:left ;
 }
+
+#addListIcon {
+  float: right;
+  margin-right: 100px;
+}
+
+#addGridIcon {
+  margin-left: 60px;
+  float:left ; 
+}

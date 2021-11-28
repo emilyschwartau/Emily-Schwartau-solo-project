@@ -105,8 +105,16 @@ function Nav() {
           </>        )
       } else if (user.id && history.location.pathname === "/add-task-form") {
         return (
-          <div>add task form page / logged in</div>
-        )
+          <>
+          <div>
+            
+              <h2 className="nav-title">Add Task</h2>
+            
+          </div>
+          <span id="infoIcon" onClick={() => handleAboutClick()}>
+            <Info color='#ffffff' size="40" /> 
+          </span>
+          </>         )
       } else if (user.id && history.location.pathname === "/details") {
         return (
           <div>task details page / logged in</div>
