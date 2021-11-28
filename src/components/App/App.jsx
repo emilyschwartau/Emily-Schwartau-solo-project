@@ -80,7 +80,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows ListViewPage else shows LoginPage
+            
             exact
             path="/graph-view"
           >

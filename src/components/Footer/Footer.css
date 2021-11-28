@@ -63,3 +63,13 @@ footer {
 #aboutListIcon {
   margin-right: 53px;
 }
+
+#addTaskIcon {
+  float: left;
+  margin-left: 55px;
+}
+
+#userListIcon {
+  margin-right: 60px;
+  float:right ;
+}

@@ -69,8 +69,16 @@ function Nav() {
         )
       } else if (user.id && history.location.pathname === "/user") {
         return (
-          <div>home page / logged in</div>
-        )
+          <>
+          <div>
+            <Link to="/login">
+              <h2 className="nav-title">Task Matrix</h2>
+            </Link>
+          </div>
+          <span id="infoIcon" onClick={() => handleAboutClick()}>
+            <Info color='#ffffff' size="40" /> 
+          </span>
+          </>        )
       } else if (user.id && history.location.pathname === "/list-view") {
         return (
           <div>list view page / logged in</div>
