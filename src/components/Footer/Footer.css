@@ -25,7 +25,9 @@ footer {
 #aboutLogoutBtn {
   align-items: center;
   margin-left: 0px;
-  width: 94%;
+  width: 63%;
+  display: inline;
+  float: left;
   
 }
 
@@ -33,4 +35,31 @@ footer {
   background-color: white;
   color: blueviolet;
   font-family: 'Patrick Hand SC', cursive;
+  display: inline;
+}
+
+#gridIcon {
+  display: inline;
+  width: 5%;
+  height: 50%;
+  float:left;
+}
+
+#aboutGridIcon {
+  display: inline;
+  margin-left: 20px;
+  margin-bottom: 40px;
+  height: 50%;
+  float: left;
+  padding-bottom: 30px;
+}
+
+#aboutLoggedIn {
+  margin-left: 0px;
+  padding-left: 0px;
+  
+}
+
+#aboutListIcon {
+  margin-right: 53px;
 }

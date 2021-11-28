@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 //import LogOutButton from '../LogOutButton/LogOutButton';
 import { useDispatch } from 'react-redux';
+import { Grid, List } from 'react-feather';
 
 
 
@@ -42,6 +43,14 @@ function Footer() {
     history.push('/login');
   }
 
+  function gridClick() {
+    history.push('/graph-view');
+  }
+
+  function listClick() {
+    history.push('/list-view');
+  }
+
   return (
     <footer>
       {(() => {
@@ -61,8 +70,20 @@ function Footer() {
           )   
         } else if (user.id && history.location.pathname === "/about") {
           return (
+            <div id="aboutLoggedIn">
+            <div id="aboutGridIcon">
+              <span id="gridIcon" onClick={() => gridClick()}>
+                <Grid color='#ffffff' size="40" /> 
+              </span>
+            </div>
             <div id="aboutLogoutBtn">
               <Button id="aboutLogoutBtnSpecific" variant="contained" size="large" onClick={() => aboutLogoutClick()}>Log Out</Button>
+            </div>
+            <div id="aboutListIcon">
+              <span id="listIcon" onClick={() => listClick()}>
+                <List color='#ffffff' size="40" /> 
+              </span>
+            </div>
             </div>
           )
         } else if (user.id && history.location.pathname === "/user") {
