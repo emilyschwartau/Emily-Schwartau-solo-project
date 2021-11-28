@@ -106,6 +106,7 @@ function AddTaskForm () {
 
     return (
         <>
+        <div className="HeaderFooterSpaceGraph"></div>
         <p>Add A New Task</p>
 
         <div>

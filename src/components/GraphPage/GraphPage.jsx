@@ -33,41 +33,24 @@ function GraphPage() {
       history.push(`/details/${id}`);
   }
 
+
     const getScatterData = () => {
+        
         return listItems.map(item => {
           return {
+            
             type: 'scatter',
-            label: item.id,
+            label: item.task,
             data: [{x: item.xValue, y: item.yValue}],
-            backgroundColor: 'black'
+            backgroundColor: 'black',
+
            
           };
         });
       };
 
-    // const getLineData = () => {
-    //     return {
-            
-           
-    //          type: 'line',
-    //          data: [7, 7, 7, 7],
-    //          backgroundColor: 'rgb(255, 99, 132)'
-            
-    //     }
-    // }
-
-    // let lineGraph = 
-    // <Line
-    // const data = {{
-    //     datasets: [{
-    //         data: [7, 7, 7, 7]
-    //     }]
-    // }}
-    
-    
-    
-    ///>
-
+      console.log(listItems);
+      let itemIndex = -1;
     return(
         <>
         {/* <div className="HeaderFooterSpace"></div> */}
@@ -87,6 +70,26 @@ function GraphPage() {
                     ],
                 }}
                 const options = {{
+                    onClick: function(evt, element) {
+                        if (element.length > 0) {
+                            
+                        listItems.map(item => {
+                            itemIndex += 1;
+                            if (itemIndex === element[0].datasetIndex) {
+                                history.push(`/details/${item.id}`)
+                                return (
+                                    console.log(item.task)
+                                )
+                                
+                            }
+
+                        })
+                        }
+                        // if (element.length > 0)  {
+                        //     console.log('clicked point', element[0].datasetIndex);
+                        //     console.log(listItems[]);
+                        // }
+                    },
                     scales: {
                         y: {
                             max: 14,
@@ -179,7 +182,7 @@ function GraphPage() {
                     elements: {
                         point: {
                             hoverRadius: 7,
-                            backgroundColor: 'rgba(225, 121, 34, 0.3)'
+                         
                             
                         }
                     },
