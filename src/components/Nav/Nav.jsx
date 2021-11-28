@@ -87,9 +87,9 @@ function Nav() {
         return (
           <>
           <div>
-            <Link to="/login">
+            
               <h2 className="nav-title">Graph View</h2>
-            </Link>
+            
           </div>
           <span id="infoIcon" onClick={() => handleAboutClick()}>
             <Info color='#ffffff' size="40" /> 
