@@ -13,4 +13,24 @@ footer {
   align-items: center;
   margin-left: 0px;
   width: 94%;
+  
+}
+
+#aboutLoginBtnSpecific {
+  background-color: white;
+  color: blueviolet;
+  font-family: 'Patrick Hand SC', cursive;
+}
+
+#aboutLogoutBtn {
+  align-items: center;
+  margin-left: 0px;
+  width: 94%;
+  
+}
+
+#aboutLogoutBtnSpecific {
+  background-color: white;
+  color: blueviolet;
+  font-family: 'Patrick Hand SC', cursive;
 }

@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
+//import LogOutButton from '../LogOutButton/LogOutButton';
+import { useDispatch } from 'react-redux';
 
 
 
@@ -20,6 +22,8 @@ function Footer() {
 
   const user = useSelector((store) => store.user);
 
+  const dispatch = useDispatch();
+
   const history = useHistory();
 
   const [path, setPath] = useState('');
@@ -33,13 +37,18 @@ function Footer() {
     history.push('/login');
   }
 
+  function aboutLogoutClick() {
+    dispatch({ type: 'LOGOUT' });
+    history.push('/login');
+  }
+
   return (
     <footer>
       {(() => {
         if (user.id === undefined && history.location.pathname === "/about") {
           return (
             <div id="aboutLoginBtn">
-              <Button variant="contained" size="large" onClick={() => aboutLoginClick()}>Log In</Button>
+              <Button id="aboutLoginBtnSpecific" variant="contained" size="large" onClick={() => aboutLoginClick()}>Log In</Button>
             </div>
           )
         } else if (user.id === undefined && history.location.pathname === "/login") {
@@ -52,7 +61,9 @@ function Footer() {
           )   
         } else if (user.id && history.location.pathname === "/about") {
           return (
-            <div>about page / logged in</div>
+            <div id="aboutLogoutBtn">
+              <Button id="aboutLogoutBtnSpecific" variant="contained" size="large" onClick={() => aboutLogoutClick()}>Log Out</Button>
+            </div>
           )
         } else if (user.id && history.location.pathname === "/user") {
           return (
@@ -81,7 +92,7 @@ function Footer() {
           
         }else {
           return (
-            <div>login after logging out</div>
+            <div></div>
           )
         }
       })()}

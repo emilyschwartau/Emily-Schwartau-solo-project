@@ -32,22 +32,40 @@ function Nav() {
       if (user.id === undefined && history.location.pathname === "/about") {
         return (
           <div>
-            <Link to="/login">
-              <h2 className="nav-title">Task Matrix</h2>
-            </Link>
+              <h2 className="nav-title">About</h2>
           </div>
         )
       } else if (user.id === undefined && history.location.pathname === "/login") {
         return (
-          <div></div>
+          <>
+          <div>
+            <Link to="/login">
+              <h2 className="nav-title">Task Matrix</h2>
+            </Link>
+          </div>
+          <span id="infoIcon" onClick={() => handleAboutClick()}>
+            <Info color='#ffffff' size="40" /> 
+          </span>
+          </>
         )
       } else if (user.id === undefined && history.location.pathname === "/registration") {
         return(
-          <div></div>
+          <>
+          <div>
+            <Link to="/login">
+              <h2 className="nav-title">Task Matrix</h2>
+            </Link>
+          </div>
+          <span id="infoIcon" onClick={() => handleAboutClick()}>
+            <Info color='#ffffff' size="40" /> 
+          </span>
+          </>
         )   
       } else if (user.id && history.location.pathname === "/about") {
         return (
-          <div>about page / logged in</div>
+          <div>
+            <h2 className="nav-title">About</h2>
+          </div>
         )
       } else if (user.id && history.location.pathname === "/user") {
         return (
@@ -76,8 +94,16 @@ function Nav() {
         
       }else {
         return (
-          <div>login after logging out</div>
-        )
+          <>
+          <div>
+            <Link to="/login">
+              <h2 className="nav-title">Task Matrix</h2>
+            </Link>
+          </div>
+          <span id="infoIcon" onClick={() => handleAboutClick()}>
+            <Info color='#ffffff' size="40" /> 
+          </span>
+          </>        )
       }
     })()}
 
