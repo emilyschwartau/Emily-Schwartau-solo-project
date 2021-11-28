@@ -240,3 +240,36 @@ input {
 #canvas {
   margin-right: 30px; 
 }
+
+#ToolIcon {
+  float: left;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#toolIconDiv {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+#completedTasksAlert {
+  margin-left: 20px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+#overdueTasksAlert {
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+#completedIcon {
+  float: left;
+  margin-right: 10px; 
+}
+
+#alertIcon {
+  float: left;
+  margin-right: 10px;  
+}

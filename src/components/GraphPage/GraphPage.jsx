@@ -5,7 +5,7 @@ import { Scatter } from 'react-chartjs-2';
 import { Line } from 'react-chartjs-2';
 import annotationPlugin from 'chartjs-plugin-annotation';
 import { Chart } from 'react-chartjs-2';
-
+import { Grid, List, PlusCircle, Tool, AlertCircle, CheckCircle } from 'react-feather';
 
 
 Chart.register(annotationPlugin);
@@ -33,6 +33,37 @@ function GraphPage() {
       history.push(`/details/${id}`);
   }
 
+  const current = new Date();
+  const date = `${current.getMonth()+1}/${current.getDate()}/${current.getFullYear()}`;
+  
+  // To set two dates to two variables
+  //date1 is today's date, date2 is due date
+  let currentDate = new Date(date);
+  console.log(currentDate);
+  let today = currentDate.getTime();
+  console.log("today", today);
+
+  let overDueArray = [];
+console.log("overdue", overDueArray);
+
+function overdueFilter() {
+    listItems.map( item => {
+        let dueDate = new Date(item.due_date);
+        let dueDateNumber = dueDate.getTime();
+        if (dueDateNumber < currentDate && item.completion_status === false) {
+           overDueArray.push(item); 
+        }
+        return (
+            console.log("overDueArray", overDueArray)
+        )
+    })
+}
+
+overdueFilter();
+
+let overdueCount = overDueArray.length;
+console.log(overdueCount);
+
 
     const getScatterData = () => {
         
@@ -43,6 +74,7 @@ function GraphPage() {
             label: item.task,
             data: [{x: item.xValue, y: item.yValue}],
             backgroundColor: 'black',
+            
 
            
           };
@@ -51,13 +83,27 @@ function GraphPage() {
 
       console.log(listItems);
       let itemIndex = -1;
+
+    function clickCompleted() {
+        history.push('/completed-tasks');
+    }
+
+    function clickOverdue() {
+        history.push('/overdue-tasks');
+    }
+
     return(
         <>
         {/* <div className="HeaderFooterSpace"></div> */}
 
         <div id="graph">
         <div className="HeaderFooterSpaceGraph"></div>
-
+            <div id="toolIconDiv">
+            <span id="ToolIcon" >
+                <Tool color='black' size="30" /> 
+            </span>
+            click on graph point to view task details
+            </div>
             <Scatter id="canvas"
                 const data = {{
                     datasets: [...getScatterData()
@@ -85,10 +131,7 @@ function GraphPage() {
 
                         })
                         }
-                        // if (element.length > 0)  {
-                        //     console.log('clicked point', element[0].datasetIndex);
-                        //     console.log(listItems[]);
-                        // }
+
                     },
                     scales: {
                         y: {
@@ -182,6 +225,7 @@ function GraphPage() {
                     elements: {
                         point: {
                             hoverRadius: 7,
+                            pointRadius: 6
                          
                             
                         }
@@ -191,6 +235,39 @@ function GraphPage() {
       
            
             />
+        </div>
+
+        <div id="completedTasksAlert" onClick={() => clickCompleted()}>
+        <span id="completedIcon" >
+                <CheckCircle color='black' size="30" /> 
+        </span> 
+        click to view completed task archive
+        </div>
+        <div id="overdueTasksAlert" onClick={() => clickOverdue()}>
+  
+            {(() => {
+             if (overdueCount === 1) {
+                return (
+                    <div>
+                    <span id="alertIcon" >
+                            <AlertCircle color='black' size="30" /> 
+                    </span>
+                    click to view {overdueCount} overdue Task!
+                    </div> 
+                    
+                )
+            } else if (overdueCount > 0) {
+                return (
+                    <div>
+                    <span id="alertIcon" >
+                            <AlertCircle color='black' size="30" /> 
+                    </span>
+                    click to view {overdueCount} overdue Tasks!
+                    </div> 
+                    
+                )
+            }
+            })()}
         </div>
     </>
     )
