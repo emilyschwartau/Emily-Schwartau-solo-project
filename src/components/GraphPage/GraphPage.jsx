@@ -29,9 +29,7 @@ function GraphPage() {
     // .sort((a,b) => a.priorityValue < b.priorityValue ? 1 : -1);
 
     // console.log('prioritized data', prioritizedData);
-  function pointClick() {
-      history.push(`/details/${id}`);
-  }
+
 
   const current = new Date();
   const date = `${current.getMonth()+1}/${current.getDate()}/${current.getFullYear()}`;
@@ -64,10 +62,28 @@ overdueFilter();
 let overdueCount = overDueArray.length;
 console.log(overdueCount);
 
+let filteredArray = [];
+console.log("filteredArray", filteredArray);
+
+function filter() {
+    listItems.map( item => {
+        let dueDate = new Date(item.due_date);
+        let dueDateNumber = dueDate.getTime();
+        if (dueDateNumber > currentDate && item.completion_status === false) {
+           filteredArray.push(item); 
+        }
+        return (
+            console.log("filteredArray", filteredArray)
+        )
+    })
+}
+
+filter();
+
 
     const getScatterData = () => {
         
-        return listItems.map(item => {
+        return filteredArray.map(item => {
           return {
             
             type: 'scatter',
@@ -81,7 +97,7 @@ console.log(overdueCount);
         });
       };
 
-      console.log(listItems);
+      console.log(filteredArray);
       let itemIndex = -1;
 
     function clickCompleted() {
@@ -119,7 +135,7 @@ console.log(overdueCount);
                     onClick: function(evt, element) {
                         if (element.length > 0) {
                             
-                        listItems.map(item => {
+                        filteredArray.map(item => {
                             itemIndex += 1;
                             if (itemIndex === element[0].datasetIndex) {
                                 history.push(`/details/${item.id}`)
