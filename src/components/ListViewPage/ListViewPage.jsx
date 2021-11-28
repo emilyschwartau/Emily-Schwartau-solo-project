@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
-import { Grid, List, PlusCircle, Tool, AlertCircle, CheckCircle } from 'react-feather';
+import { Grid, List, PlusCircle, Tool, AlertCircle, CheckCircle, CheckSquare, Trash} from 'react-feather';
 import ListItemButton from '@mui/material/ListItemButton';
 //import ListItemText from '@mui/material/ListItemText';
 
@@ -103,6 +103,12 @@ const prioritizedData= [].concat(filteredArray)
     history.push('/overdue-tasks');
 }
 
+function clickCompleted() {
+  history.push('/completed-tasks');
+}
+
+
+
   return (
     <>
     <div className="HeaderFooterSpace"></div>
@@ -132,6 +138,13 @@ const prioritizedData= [].concat(filteredArray)
   }
   })()}
 </div>
+<div id="completedTasksAlertList" onClick={() => clickCompleted()}>
+        <span id="completedIconList" >
+                <CheckCircle color='black' size="30" /> 
+        </span> 
+        click to view completed task archive
+        </div>
+
 <h1 id="todoTitle">To-Do</h1>
     {/* <div className="container"> */}
 
@@ -140,17 +153,19 @@ const prioritizedData= [].concat(filteredArray)
                     return (
                       <li>
                                 <div id="margin">
-                                    
+                                        <div id="completeBtn">
+                                            {user.id && <CheckSquare onClick={() => updateItem(item.id)}></CheckSquare>}
+                                        </div>
                                         <div id="card" key={item.id} onClick={() => handleSelectTask(item)}>
                                             <ListItemButton><h2>{item.task}</h2></ListItemButton>
                                             
                                         </div>
                                         
-                                        <div id ="completeDeleteBtns">
-                                            {user.id && <button onClick={() => deleteItem(item.id)}>DELETE</button>}
-                                            {user.id && <button onClick={() => updateItem(item.id)}>COMPLETE TASK</button>}
+                                        <div id ="deleteBtn">
+                                            {user.id && <Trash onClick={() => deleteItem(item.id)}>DELETE</Trash>}
                                         </div>
-                                    
+
+
                                 </div>
                         </li>
                     );

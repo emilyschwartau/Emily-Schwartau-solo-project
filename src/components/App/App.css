@@ -279,17 +279,32 @@ input {
 #alertIconList {
   float: left;
   margin-right: 20px;
-  margin-top: 7px;  
+  margin-top: 8px;  
 }
 
 #overdueTasksAlertList {
   width: 100%;
-  height: 40px;
+  height: 50px;
   margin-left: 0px;
-  font-size: 30px;
+  font-size: 20px;
   margin-top: 20px;
   background-color: coral;
   
+}
+
+#completedTasksAlertList {
+  width: 100%;
+  height: 50px;
+  margin-left: 0px;
+  font-size: 20px;
+  margin-top: 0px;
+  background-color: green; 
+}
+
+#completedIconList {
+  float: left;
+  margin-right: 20px;
+  margin-top: 8px; 
 }
 
 #todoTitle {
@@ -299,8 +314,27 @@ input {
 
 li {
   border-color: rgb(187, 198, 219);
+  border-width: 1px;
   border-left-color: white;
   border-top-color: white;
   border-right-color: white;
   border-style: solid;
+}
+
+#card {
+  display: inline-block;
+  width: 75%;
+  margin: 0px;
+}
+
+#completeBtn {
+  display: inline-block;
+  width: 7%;
+  margin-left: 20px;
+}
+
+#deleteBtn {
+  display: inline-block;
+  width: 7%;
+  margin-right: 0px;
 }
