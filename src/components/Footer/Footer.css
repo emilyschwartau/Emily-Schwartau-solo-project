@@ -3,7 +3,7 @@ footer {
   margin-top: 80px;
   padding: 20px;
   text-align: center;
-  background-color: rgba(136, 35, 192, 0.8);
+  background-color: rgba(136, 35, 192, 1);
   bottom: 0;
   width: 100%;
   height: 40px;
@@ -80,6 +80,11 @@ footer {
 }
 
 #graphListIcon {
+  margin-left: 60px;
+  float:left ;
+}
+
+#listGridIcon {
   margin-left: 60px;
   float:left ;
 }

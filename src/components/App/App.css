@@ -38,7 +38,7 @@ Button
   border-width: 1px 1px 1px;
   border-radius: 4px;
   /* background-color: #00acb0; */
-  background-color: rgba(136, 35, 192, 0.8);
+  background-color: rgba(136, 35, 192, 1);
   color: #f8f8f8;
   font-size: 1.1rem;
   outline: 0;
@@ -64,7 +64,7 @@ Button
 
 .btn:hover {
   /* background-color: #008183; */
-  background-color: rgba(136, 35, 192, 0.8);
+  background-color: rgba(136, 35, 192, 1);
   text-decoration: none;
 }
 
@@ -82,9 +82,9 @@ Button
 .btn_asLink:hover {
   background-color: transparent;
   /* border-color: #008183; */
-  border-color: rgba(136, 35, 192, 0.8) ;
+  border-color: rgba(136, 35, 192, 1) ;
   /* color: #008183; */
-  color: rgba(136, 35, 192, 0.8);
+  color: rgba(136, 35, 192, 1);
 }
 
 /* --------------------------------------------------------------------------------
