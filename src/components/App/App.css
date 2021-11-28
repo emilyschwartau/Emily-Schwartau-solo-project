@@ -24,6 +24,7 @@ Container
 -------------------------------------------------------------------------------- */
 
 .container {
+  margin-top: 0px;
   padding: 20px;
 }
 
@@ -271,5 +272,35 @@ input {
 
 #alertIcon {
   float: left;
-  margin-right: 10px;  
+  margin-right: 20px;
+  
+}
+
+#alertIconList {
+  float: left;
+  margin-right: 20px;
+  margin-top: 7px;  
+}
+
+#overdueTasksAlertList {
+  width: 100%;
+  height: 40px;
+  margin-left: 0px;
+  font-size: 30px;
+  margin-top: 20px;
+  background-color: coral;
+  
+}
+
+#todoTitle {
+  margin-bottom: 0px;
+  margin-left: 20px;
+}
+
+li {
+  border-color: rgb(187, 198, 219);
+  border-left-color: white;
+  border-top-color: white;
+  border-right-color: white;
+  border-style: solid;
 }

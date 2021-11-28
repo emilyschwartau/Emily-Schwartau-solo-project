@@ -2,6 +2,11 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
+import { Grid, List, PlusCircle, Tool, AlertCircle, CheckCircle } from 'react-feather';
+import ListItemButton from '@mui/material/ListItemButton';
+//import ListItemText from '@mui/material/ListItemText';
+
+
 
 function ListViewPage() {
 
@@ -94,29 +99,42 @@ const prioritizedData= [].concat(filteredArray)
 
   console.log('prioritized data', prioritizedData);
 
+  function clickOverdue() {
+    history.push('/overdue-tasks');
+}
+
   return (
     <>
     <div className="HeaderFooterSpace"></div>
-    <div className="container">
-    <p>List View Page</p>
-    <div>
-    {(() => {
-      if (overdueCount === 1) {
-        return (
-        <p>you have {overdueCount} overdue Task!</p>
-        )
-      } else if (overdueCount > 0) {
-        return (
-          <p>you have {overdueCount} overdue Tasks!</p>
-        )
-      }
-    })()}
-    </div>
+    <div id="overdueTasksAlertList" onClick={() => clickOverdue()}>
+  
+  {(() => {
+   if (overdueCount === 1) {
+      return (
+          <div>
+          <span id="alertIconList" >
+                  <AlertCircle color='black' size="30" /> 
+          </span>
+          click to view {overdueCount} overdue Task!
+          </div> 
+          
+      )
+  } else if (overdueCount > 0) {
+      return (
+          <div>
+          <span id="alertIconList" >
+                  <AlertCircle color='black' size="30" /> 
+          </span>
+          click to view {overdueCount} overdue Tasks!
+          </div> 
+          
+      )
+  }
+  })()}
+</div>
+<h1 id="todoTitle">To-Do</h1>
+    {/* <div className="container"> */}
 
-
-      
-      
-      
       <ol> 
       {prioritizedData?.map(item => {
                     return (
@@ -124,11 +142,11 @@ const prioritizedData= [].concat(filteredArray)
                                 <div id="margin">
                                     
                                         <div id="card" key={item.id} onClick={() => handleSelectTask(item)}>
-                                            <h3>Task: {item.task}</h3>
-                                            <h3>due date: {item.due_date}</h3>
+                                            <ListItemButton><h2>{item.task}</h2></ListItemButton>
+                                            
                                         </div>
                                         
-                                        <div>
+                                        <div id ="completeDeleteBtns">
                                             {user.id && <button onClick={() => deleteItem(item.id)}>DELETE</button>}
                                             {user.id && <button onClick={() => updateItem(item.id)}>COMPLETE TASK</button>}
                                         </div>
@@ -140,7 +158,7 @@ const prioritizedData= [].concat(filteredArray)
                 })} 
         </ol>
 
-    </div>
+    {/* </div> */}
     <div className="HeaderFooterSpace"></div>
     </>
   );
