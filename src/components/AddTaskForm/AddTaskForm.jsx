@@ -12,6 +12,8 @@ function AddTaskForm () {
 
     const dispatch = useDispatch();
 
+    const history = useHistory();
+
     const userInputs = useSelector(store => store.userInputsReducer);
 
     //let [newTask, setNewTask] = useState({ task: '', due_date: '', importance: '', time_requirement: '', notes: '', priority_value: ''});
@@ -100,6 +102,7 @@ function AddTaskForm () {
 
         //this was immediately adding to DB
         dispatch({ type: 'ADD_TASK', payload: newTask });
+        history.push('/list-view');
     }
            
     console.log(priorityValue);

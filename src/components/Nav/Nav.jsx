@@ -115,11 +115,19 @@ function Nav() {
             <Info color='#ffffff' size="40" /> 
           </span>
           </>         )
-      } else if (user.id && history.location.pathname === "/details") {
+      } else if (user.id && history.location.pathname === "/details/:id") {
         return (
-          <div>task details page / logged in</div>
-        )
-      } else if (user.id && history.location.pathname === "/edit") {
+          <>
+          <div>
+            
+              <h2 className="nav-title"></h2>
+            
+          </div>
+          <span id="infoIcon" onClick={() => handleAboutClick()}>
+            <Info color='#ffffff' size="40" /> 
+          </span>
+          </>        )
+      } else if (user.id && history.location.pathname === "/edit/:id") {
         return (
           <div>edit task page / logged in</div>
         )

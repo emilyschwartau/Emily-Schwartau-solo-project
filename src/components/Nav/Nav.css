@@ -8,10 +8,11 @@
   justify-content: space-between;
   align-items: center;
 
-  margin: 0 0 30px;
+  /* margin: 0 0 30px; */
   background-color: rgba(136, 35, 192, 1);
   overflow: hidden;
   height: 85px;
+  margin-top: 0px
 }
 
 .nav a {

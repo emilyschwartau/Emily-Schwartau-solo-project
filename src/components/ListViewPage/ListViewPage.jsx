@@ -40,7 +40,7 @@ const handleSelectTask = (item) => {
 
   // go to details view
   history.push(`/details/${item.id}`);
-  //console.log(movie);
+  
 };
 
 const current = new Date();
