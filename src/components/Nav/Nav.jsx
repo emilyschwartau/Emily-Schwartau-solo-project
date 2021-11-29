@@ -11,6 +11,8 @@ import { useHistory } from 'react-router-dom';
 function Nav() {
   const user = useSelector((store) => store.user);
 
+  const selectedTask = useSelector((store) => store.selectedTaskReducer);  
+
   const history = useHistory();
 
   function handleAboutClick () {
@@ -115,12 +117,12 @@ function Nav() {
             <Info color='#ffffff' size="40" /> 
           </span>
           </>         )
-      } else if (user.id && history.location.pathname === "/details/:id") {
+      } else if (user.id && history.location.pathname === `/details/${selectedTask.id}`) {
         return (
           <>
           <div>
             
-              <h2 className="nav-title"></h2>
+              <h2 className="nav-title">Task Details</h2>
             
           </div>
           <span id="infoIcon" onClick={() => handleAboutClick()}>

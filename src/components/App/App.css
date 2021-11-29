@@ -388,3 +388,29 @@ li {
   margin-left: 160px;
   margin-bottom: 40px;
 }
+
+#taskDetail {
+  margin: 20px;
+  margin-top: 40px;
+}
+
+#checkDetails {
+  margin: 40px;
+
+}
+
+#editDetails {
+  
+  margin: 40px;
+ 
+  
+}
+
+#deleteDetails {
+  margin: 40px;
+  
+}
+
+#detailBtns {
+  margin-left: 26px;
+}

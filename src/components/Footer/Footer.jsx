@@ -23,6 +23,9 @@ function Footer() {
 
   const user = useSelector((store) => store.user);
 
+  const selectedTask = useSelector((store) => store.selectedTaskReducer);  
+
+
   const dispatch = useDispatch();
 
   const history = useHistory();
@@ -154,10 +157,21 @@ function Footer() {
               </span>
             </div>
             </div>          )
-        } else if (user.id && history.location.pathname === "/details") {
+        } else if (user.id && history.location.pathname === `/details/${selectedTask.id}`) {
           return (
-            <div>task details page / logged in</div>
-          )
+            <div id="aboutLoggedIn">
+            <div id="aboutGridIcon">
+              <span id="addGridIcon" onClick={() => gridClick()}>
+                <Grid color='#ffffff' size="40" /> 
+              </span>
+            </div>
+ 
+            <div id="addListIcon">
+              <span id="listIcon" onClick={() => listClick()}>
+                <List color='#ffffff' size="40" /> 
+              </span>
+            </div>
+            </div>           )
         } else if (user.id && history.location.pathname === "/edit") {
           return (
             <div>edit task page / logged in</div>

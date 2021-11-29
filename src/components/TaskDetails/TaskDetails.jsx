@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { useHistory, useParams, useLocation } from 'react-router-dom';
 import { useState } from 'react';
+import { Grid, List, PlusCircle, Tool, AlertCircle, CheckCircle, CheckSquare, Trash, Edit} from 'react-feather';
+
 
 function TaskDetails () {
      // get the movie id from the url parameter
@@ -38,24 +40,37 @@ function TaskDetails () {
     let dueDateNumber = dueDate.toDateString();
     console.log(dueDateNumber);
 
+    const updateItem = (id) => {
+        dispatch({type: 'UPDATE_LIST_ITEM', payload: id});
+    }
 
+    const deleteItem = (id) => {
+        dispatch({type: 'DELETE_LIST_ITEM', payload: id});
+        history.push('/list-view');
+      }
 
     return (
         <div>
         <div className="HeaderFooterSpace"></div>
-        <h1>Task Details</h1>
+        
 
         {
             selectedTask.task ? (
             <>
-              
-                <h2>Task: {selectedTask.task}</h2>
+                <div id="taskDetail">
+                <h1>Task: {selectedTask.task}</h1>
                 <h2>Due date: {dueDateNumber}</h2>
                 <h2>Notes: {selectedTask.notes}</h2>
                 <h2>Importance from 0 to 100: {selectedTask.importance}</h2>
                 <h2>Time requirement: {selectedTask.time_requirement} minutes</h2>
-                <button onClick={handleEdit}>Edit Task</button>
-
+                
+                </div>
+                <div id="detailBtns">
+                
+                <CheckSquare size="40" id="checkDetails" onClick={() => updateItem(selectedTask.id)}></CheckSquare>
+                <Edit size="40"id="editDetails" onClick={handleEdit}>Edit Task</Edit>
+                <Trash size="40"id="deleteDetails" onClick={() => deleteItem(selectedTask.id)}>DELETE</Trash>
+                </div>
 
             </>
             ) : (
