@@ -42,6 +42,7 @@ function TaskDetails () {
 
     const updateItem = (id) => {
         dispatch({type: 'UPDATE_LIST_ITEM', payload: id});
+        history.push('/list-view');
     }
 
     const deleteItem = (id) => {
