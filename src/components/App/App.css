@@ -414,3 +414,22 @@ li {
 #detailBtns {
   margin-left: 26px;
 }
+
+#updateTaskBtn {
+  margin-top: 20px;
+  /* margin-left: 160px; */
+  margin-bottom: 40px;
+}
+
+#CancelBtn {
+  margin-top: 20px;
+  margin-left: 100px;
+  margin-bottom: 40px;
+  width: 70px;
+  
+  
+}
+
+#updateButtons {
+  margin-left: 40px;
+}

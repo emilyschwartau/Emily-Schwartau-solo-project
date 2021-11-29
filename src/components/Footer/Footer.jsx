@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './Footer.css';
 import { useSelector } from 'react-redux';
 //import { Info } from 'react-feather';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 //import LogOutButton from '../LogOutButton/LogOutButton';
@@ -23,7 +23,9 @@ function Footer() {
 
   const user = useSelector((store) => store.user);
 
-  const selectedTask = useSelector((store) => store.selectedTaskReducer);  
+  const selectedTask = useSelector((store) => store.selectedTaskReducer); 
+  
+  const { id } = useParams();
 
 
   const dispatch = useDispatch();
@@ -172,12 +174,42 @@ function Footer() {
               </span>
             </div>
             </div>           )
-        } else if (user.id && history.location.pathname === "/edit") {
-          return (
-            <div>edit task page / logged in</div>
-          )
+        } else if (user.id && history.location.pathname === `/edit/${selectedTask.id}`) {
           
-        }else {
+            return (
+              <div id="aboutLoggedIn">
+              <div id="aboutGridIcon">
+                <span id="addGridIcon" onClick={() => gridClick()}>
+                  <Grid color='#ffffff' size="40" /> 
+                </span>
+              </div>
+   
+              <div id="addListIcon">
+                <span id="listIcon" onClick={() => listClick()}>
+                  <List color='#ffffff' size="40" /> 
+                </span>
+              </div>
+              </div>
+              )
+          
+        } else if (user.id && history.location.pathname === `/completed-tasks`) {
+          return (
+            <div id="aboutLoggedIn">
+            <div id="aboutGridIcon">
+              <span id="addGridIcon" onClick={() => gridClick()}>
+                <Grid color='#ffffff' size="40" /> 
+              </span>
+            </div>
+ 
+            <div id="addListIcon">
+              <span id="listIcon" onClick={() => listClick()}>
+                <List color='#ffffff' size="40" /> 
+              </span>
+            </div>
+            </div>
+          )
+
+        } else {
           return (
             <div></div>
           )

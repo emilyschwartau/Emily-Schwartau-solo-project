@@ -129,11 +129,31 @@ function Nav() {
             <Info color='#ffffff' size="40" /> 
           </span>
           </>        )
-      } else if (user.id && history.location.pathname === "/edit/:id") {
+      } else if (user.id && history.location.pathname === `/edit/${selectedTask.id}`) {
         return (
-          <div>edit task page / logged in</div>
-        )
+          <>
+          <div>
+            
+              <h2 className="nav-title">Edit Task</h2>
+            
+          </div>
+          <span id="infoIcon" onClick={() => handleAboutClick()}>
+            <Info color='#ffffff' size="40" /> 
+          </span>
+          </>         )
         
+      } else if(user.id && history.location.pathname === `/completed-tasks`) {
+        return(
+        <>
+        <div>
+          
+            <h2 className="nav-title">Completed Tasks</h2>
+          
+        </div>
+        <span id="infoIcon" onClick={() => handleAboutClick()}>
+          <Info color='#ffffff' size="40" /> 
+        </span>
+        </>         )
       }else {
         return (
           <>
