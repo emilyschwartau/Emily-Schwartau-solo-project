@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
+import { Grid, List, PlusCircle, Tool, AlertCircle, CheckCircle, CheckSquare, Trash} from 'react-feather';
+import ListItemButton from '@mui/material/ListItemButton';
 
 function CompletedTasksArchive () {
 
@@ -64,15 +66,17 @@ function CompletedTasksArchive () {
         filter();
 
     return (
+        <>
+        <div className="HeaderFooterSpace"></div>
         <div className="container">
-        <p>Completed Task Archive</p>
+        
         
     
         <ul> 
         {completedArray?.map(item => {
                       return (
                         <li>
-                                  <div id="margin">
+                                  {/* <div id="margin">
                                       
                                           <div id="card" key={item.id} onClick={() => handleSelectTask(item)}>
                                               <h3>Task: {item.task}</h3>
@@ -84,7 +88,21 @@ function CompletedTasksArchive () {
                                               
                                           </div>
                                       
-                                  </div>
+                                  </div> */}
+
+                                  <div id="margin">
+                                 
+                                        <div id="card" key={item.id} onClick={() => handleSelectTask(item)}>
+                                            <ListItemButton><h2>{item.task}</h2></ListItemButton>
+                                            
+                                        </div>
+                                        
+                                        <div id ="deleteBtn">
+                                            {user.id && <Trash onClick={() => deleteItem(item.id)}>DELETE</Trash>}
+                                        </div>
+
+
+                                </div>
                           </li>
                       );
                       
@@ -92,6 +110,8 @@ function CompletedTasksArchive () {
           </ul>
   
       </div>
+      <div className="HeaderFooterSpace"></div>
+      </>
     )
 }
 
