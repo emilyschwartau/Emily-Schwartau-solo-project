@@ -209,6 +209,23 @@ function Footer() {
             </div>
           )
 
+        } else if (user.id && history.location.pathname === `/overdue-tasks`) {
+          return (
+            <div id="aboutLoggedIn">
+            <div id="aboutGridIcon">
+              <span id="addGridIcon" onClick={() => gridClick()}>
+                <Grid color='#ffffff' size="40" /> 
+              </span>
+            </div>
+ 
+            <div id="addListIcon">
+              <span id="listIcon" onClick={() => listClick()}>
+                <List color='#ffffff' size="40" /> 
+              </span>
+            </div>
+            </div>
+          )
+
         } else {
           return (
             <div></div>

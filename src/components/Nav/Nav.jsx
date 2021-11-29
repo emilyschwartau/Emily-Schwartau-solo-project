@@ -154,6 +154,18 @@ function Nav() {
           <Info color='#ffffff' size="40" /> 
         </span>
         </>         )
+      } else if (user.id && history.location.pathname === `/overdue-tasks`) {
+        return(
+          <>
+          <div>
+            
+              <h2 className="nav-title">Overdue Tasks</h2>
+            
+          </div>
+          <span id="infoIcon" onClick={() => handleAboutClick()}>
+            <Info color='#ffffff' size="40" /> 
+          </span>
+          </>         )
       }else {
         return (
           <>
