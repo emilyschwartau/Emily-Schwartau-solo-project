@@ -11,6 +11,19 @@ function AboutPage() {
     <div className="HeaderFooterSpace"></div>
     <div className="container">
       <div>
+      <h2>The Eisenhower Matrix concept</h2>
+      <p>
+        The Eisenhower Matrix is a productivity concept that organizes tasks based on 
+        urgency and importance. Urgent and important tasks should be prioritized, urgent but 
+        not important tasks should be delegated, important but not urgent tasks should be
+        scheduled for later, and not urgent and not important tasks should be eliminated.
+
+
+      </p>
+      <p>
+      "What Is Important Is Seldom Urgent and What Is Urgent Is Seldom Important" - Dwight D. Eisenhower
+      </p>
+
       <h2>How to use Task Matrix</h2>
         <p>1. Add tasks by clicking the + button</p>
         <p>2. View tasks either in graph view, or list view formats</p>
@@ -22,6 +35,7 @@ function AboutPage() {
         
       </div>
     </div>
+    <div className="HeaderFooterSpace"></div>
     </>
   );
 }
