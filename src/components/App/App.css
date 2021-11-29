@@ -224,7 +224,7 @@ input {
   height:100px;
 }
 
-#rightArrow {
+/* #rightArrow {
   max-width: 100%;
   margin-left: 10px;
   margin-right: 30px;
@@ -236,7 +236,7 @@ input {
   height: 30px;
   
   
-}
+} */
 
 #canvas {
   margin-right: 30px; 
@@ -337,4 +337,54 @@ li {
   display: inline-block;
   width: 7%;
   margin-right: 0px;
+}
+
+#newTaskInput {
+  width: 100%;
+  margin: 20px;
+  /* margin-left: 120px; */
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+#dateInput {
+  width: 100%;
+  margin: 20px;
+  /* margin-left: 120px; */
+  margin-bottom: 0px;
+}
+
+#importanceInput {
+  width: 100%;
+  margin: 20px;
+  margin-right: 30px;
+  /* margin-left: 120px; */
+  margin-bottom: 0px;
+}
+
+#slider {
+  width: 80%;
+  margin: 20px;
+  margin-top: 0px;
+}
+
+#timeInput {
+  width: 100%;
+  margin: 20px;
+  /* margin-left: 120px; */
+  margin-bottom: 0px;
+}
+
+#notesInput {
+ 
+  margin: 20px;
+  /* margin-left: 120px; */
+  margin-bottom: 0px;
+  margin-right: 20px;
+}
+
+#submitNewTaskBtn {
+  margin-top: 20px;
+  margin-left: 160px;
+  margin-bottom: 40px;
 }

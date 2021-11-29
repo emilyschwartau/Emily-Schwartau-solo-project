@@ -2,6 +2,10 @@ import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
+import TextField from '@mui/material/TextField';
+import Slider from '@mui/material/Slider';
+import Button from '@mui/material/Button';
+
 
 
 function AddTaskForm () {
@@ -106,22 +110,37 @@ function AddTaskForm () {
 
     return (
         <>
-        <div className="HeaderFooterSpaceGraph"></div>
-        <p>Add A New Task</p>
+        <div className="HeaderFooterSpace"></div>
+        
 
         <div>
         <form onSubmit={addNewTask} >
-
-            <input placeholder='Task' type='text' value={newTask.task} onChange={handleTaskChange} />
-            <input placeholder='Due Date' type='date' value={newTask.due_date.toString()} onChange={handleDueDateChange} />
-            <input placeholder='Importance' type='int' value={newTask.importance} onChange={handleImportanceChange} />
-            <input placeholder='Time Requirement' type='int' value={newTask.time_requirement} onChange={handleTimeRequirementChange} />
-            <textarea placeholder='Notes' rows="4" cols="50" value={newTask.notes} onChange={handleNotesChange}></textarea>
             
-            <input type='submit' value='Save' />
+            <div id="newTaskInput"><h2>New Task</h2>
+            <TextField id="outlined-basic-task" label="New Task" variant="outlined" type='text' value={newTask.task} onChange={handleTaskChange} /></div>
+            
+            <div id="dateInput"><h2>Due Date</h2>
+            <TextField id=""label="" variant="outlined" placeholder='Due Date' type='date' value={newTask.due_date.toString()} onChange={handleDueDateChange} /></div>
+
+            <div id="importanceInput">
+                <h2>Importance</h2>
+                <Slider id="slider" defaultValue={50} min={1} max={99} type='int' value={newTask.importance} onChange={handleImportanceChange} /></div>
+
+            <div id="timeInput"><h2>Time Requirement</h2>
+                <TextField id="" label="in minutes" type='int' value={newTask.time_requirement} onChange={handleTimeRequirementChange} /></div>
+           
+            <div id ="notesInput"><h2>Notes</h2>
+                <TextField fullWidth label='Notes' multiline rows={4} value={newTask.notes} onChange={handleNotesChange}/></div>
+            
+            <div id="submitNewTaskBtn">
+                <input className="btn" type="submit" name="submit" value="Save Task" />
+            </div>
+            
 
         </form>
+        
     </div>
+    <div className="HeaderFooterSpace"></div>
     </>
     )
 }

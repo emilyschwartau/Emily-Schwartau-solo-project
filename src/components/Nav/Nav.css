@@ -9,7 +9,6 @@
   align-items: center;
 
   margin: 0 0 30px;
-  /* background-color: #00acb0; */
   background-color: rgba(136, 35, 192, 1);
   overflow: hidden;
   height: 85px;
@@ -17,6 +16,7 @@
 
 .nav a {
   text-decoration: none;
+  background-color: rgba(136, 35, 192, 1);
 }
 
 .nav-title {
