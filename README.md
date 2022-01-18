@@ -23,7 +23,7 @@ One method of task prioritization is called the Eisenhower Matrix, where tasks a
 
 ## Screenshots
 
-<img src="<img src="https://www.emilyschwartau.com/assets/img/portfolio/Screen%20Recording%202021-12-05%20at%207.47.15%20AM.mov" />" />## Built With
+<img src="https://www.emilyschwartau.com/assets/img/portfolio/Screen%20Recording%202021-12-05%20at%207.47.15%20AM.mov"/>## Built With
 
 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" height="40px" width="40px" /></a><a href="https://www.heroku.com/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/heroku/heroku-original.svg" height="40px" width="40px" /></a><a href="https://developer.mozilla.org/en-US/docs/Web/HTML"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" height="40px" width="40px" /></a><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" height="40px" width="40px" /></a><a href="https://material-ui.com/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/materialui/materialui-original.svg" height="40px" width="40px" /></a><a href="https://nodejs.org/en/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" height="40px" width="40px" /></a><a href="https://www.postgresql.org/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" height="40px" width="40px" /></a><a href="https://reactjs.org/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" height="40px" width="40px" /></a><a href="https://redux.js.org/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" height="40px" width="40px" /></a>
 
@@ -35,35 +35,40 @@ In order to get started the user will simply need to fork and clone the reposito
 
 Softwares used in creating this application includes:
 
-Visual Studio Code
-PostgreSQL
-Postico
-Node.js
-Nodemon
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Postico](https://eggerapps.at/postico/)
+- [Node.js](https://nodejs.org/en/)
+- [Nodemon](https://nodemon.io/)
 
 The application's repository may require alterations to lines of codes if used with other softwares that are not listed above.
 
 ### Installation
 
-1. To run this application, the user should fork the repository onto their own GitHub account. In the user's repository, the user should copy the link and clone the repository onto their local system. Navigate to the repository folder using the terminal and run command line npm install
+1. To run this application, the user should fork the repository onto their own GitHub account. In the user's repository, the user should copy the link and clone the repository onto their local system. Navigate to the repository folder using the terminal and run command line `npm install`
+   - `$ cd ../Emily-Schwartau-solo-project`
+   - `$ npm install`
 
-$ cd ../lystr
-$ npm install
+<br />
 
 2. Create a .env file in the repository folder and insert in the following lines with the placeholder variables.
 
-SERVER_SESSION_SECRET="strongPassword"
+   SERVER_SESSION_SECRET="`strongPassword`" <br />
 
-Replace strongPassword with a strong password of the user's choice or use https://passwordsgenerator.net/ to generate a password to replace it with.
+   Replace `strongPassword` with a strong password of the user's choice or use [https://passwordsgenerator.net/](https://passwordsgenerator.net/) to generate a password to replace it with.
 
-3. Create a local postgreSQL database called task_matrix with Postico using the command lines from the database.sql file. Using different database systems may require the user to alter or add additional command lines to reflect the example database provided.
+<br />
+
+3.  Create a local postgreSQL database called `task_matrix` with Postico using the command lines from the database.sql file. Using different database systems may require the user to alter or add additional command lines to reflect the example database provided.
+
+<br />
 
 4. To start up the application, enter in the terminal the npm command lines of:
 
-npm run server
-npm run client
+   - `npm run server`
+   - `npm run client`
 
-The server should be running on http://localhost:5000 whereas the client should be on http://localhost:3000. Both the server and the client is required to be up and running for the application to run successfully.
+   The server should be running on `http://localhost:5000` whereas the client should be on `http://localhost:3000`. Both the server and the client is required to be up and running for the application to run successfully.
 
 ## Usage
 
