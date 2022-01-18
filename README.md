@@ -23,7 +23,7 @@ One method of task prioritization is called the Eisenhower Matrix, where tasks a
 
 ## Screenshots
 
-<img src="https://www.emilyschwartau.com/assets/img/portfolioScreen%20Recording%202021-12-05%20at%207.47.15%20AM.mov"/>
+<img src="documentation/images/task-matrix-demo.mov"/>
 
 ## Built With
 
