@@ -85,11 +85,27 @@ The application's repository may require alterations to lines of codes if used w
 
 Once the application is up and running, the user should be redirected to the browser with the application loaded. If not, open up a browser and enter in the url:
 
-http://localhost:3000
+- `http://localhost:3000`
 
-Users must register and login before using the Task Matrix app. 
+- Users must register and login before using the Task Matrix app. 
 
-- Users may add a task by clicking on the plus icon in the lower righthand corner that will redirect the user to a form
+- Adding a Task
+  - Users may add a task by clicking on the plus icon in the lower righthand corner that will redirect the user to an add task form
+  - The user must then fill out all the required fields
+
+- Viewing a Task
+  - Users may either view the tasks in a graph format by clicking on the grid icon on the bottom toolbar, or in a list format by clicking on the list icon on the bottom toolbar
+  - Users may view overdue tasks by clicking on the warning present on the graph page or list page
+  - Users may view completed tasks by clicking on the "view completed tasks" message present on the graph page or the list page
+
+- Editing a Task
+  - Tasks may be edited by selecting a task either from the graph or list page, then clicking on the edit icon on the task details page
+
+- Marking a Task as Complete
+  - Tasks may be marked as complete by clicking on the checkmark icon present on the list view page or the task detail page
+
+- Deleting a Task
+  - Tasks may be deleted by clicking on the trashcan icon present on the list view page or the task details page
 
 
 ## License
@@ -98,7 +114,9 @@ Users must register and login before using the Task Matrix app.
 
 ## Acknowledgements
 
-Who helped you make this project a reality? Friends? Family? Contributors? Instructors?
+I would like to thank and acknowledge my instructors, Dane Smith and Liz Kerber, the Solinas Cohort, and the whole greater community at Prime Digital Academy, for providing us with the necessary tools and skills to succeed.
+
+Additionally, I would like to thank my friends and families for continuing to support me as I have continued to grow in my developing skills.
 
 ## Contacts
 
