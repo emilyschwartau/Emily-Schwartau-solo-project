@@ -20,7 +20,7 @@ function RegisterPage() {
         >
           Login
         </button>
-        <p>&copy; Emily Schwartau</p>
+        <p>&copy; Emily Schwartau 2022</p>
       </center>
     </div>
   );
