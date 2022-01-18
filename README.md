@@ -23,13 +23,11 @@ One method of task prioritization is called the Eisenhower Matrix, where tasks a
 
 ## Screenshots
 
-![Graph View Page](/documentation/images/solo project screenshots/Screen Shot 2022-01-18 at 2.23.22 PM.png)
+<div>
+Graph View Page
+<img src="/documentation/images/solo project screenshots/Screen Shot 2022-01-18 at 2.23.22 PM.png" style="width:500px;height:600px;"/>
 
-![Search Results Page](README_images/lystr-search-results.png)
-![Vehicle Details Page](README_images/lystr-details.png)
-![User Dashboard Page](README_images/lystr-user-dashboard.png)
-![Image Upload Page](README_images/lystr-image-upload.png)
-
+</div>
 
 ## Built With
 
