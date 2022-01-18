@@ -23,17 +23,3 @@ function* selectedTaskSaga() {
 }
 
 export default selectedTaskSaga;
-
-
-// fetch the details of a specific movie from the database (joins tables)
-// function* fetchDetails(action) {
-//     const id = action.payload;
-//     try {
-//         const details = yield axios.get(`/api/movie/${id}`);
-//         console.log("movie details:", details.data);
-//         // save the details in the redux store
-//         yield put({ type: "SET_DETAILS", payload: details.data[0] });
-//     } catch (error) {
-//         console.log("get movie's genres error:", error);
-//     }
-// }

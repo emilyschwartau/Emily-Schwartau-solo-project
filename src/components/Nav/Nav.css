@@ -1,14 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 .nav {
-  /* flex box layout */
   position: fixed;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  /* margin: 0 0 30px; */
   background-color: rgba(136, 35, 192, 1);
   overflow: hidden;
   height: 85px;
@@ -32,22 +29,17 @@
 .navLink {
   display: inline-block;
   color: #f2f2f2;
-  /* background-color: #00acb0; */
   background-color: rgba(136, 35, 192, 1);
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
   font-size: 15px;
-
-  /* these last two make the logout button in
-  the nav bar look like another link */
   border: none;
   cursor: pointer;
   outline: 0;
 }
 
 .navLink:hover {
-  /* background-color: #008183; */
   background-color: rgba(136, 35, 192, 1);
 }
 

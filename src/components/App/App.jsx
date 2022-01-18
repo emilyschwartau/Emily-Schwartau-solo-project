@@ -5,14 +5,10 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-
 import { useDispatch, useSelector } from 'react-redux';
-
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import ListViewPage from '../ListViewPage/ListViewPage';
@@ -25,10 +21,10 @@ import GraphPage from '../GraphPage/GraphPage';
 import EditPage from '../EditPage/EditPage';
 import OverdueTaskArchive from '../OverdueTaskArchive/OverdueTaskArchive';
 import CompletedTasksArchive from '../CompletedTasksArchive/CompletedTasksArchive';
-
 import './App.css';
 
 function App() {
+
   const dispatch = useDispatch();
 
   const user = useSelector(store => store.user);
@@ -45,7 +41,6 @@ function App() {
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />
 
-
           {/* UNPROTECTED ROUTE */}
           {/* Visiting localhost:3000/about will show the about page. */}
           <Route
@@ -55,8 +50,6 @@ function App() {
           >
             <AboutPage />
           </Route>
-
-
 
           {/* PROTECTED ROUTES */}
           {/* For protected routes, the view could show one of several things on the same route.
@@ -80,7 +73,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            
+            //graph view page
             exact
             path="/graph-view"
           >
@@ -88,6 +81,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
+            //add task form
             exact
             path="/add-task-form"
           >
@@ -95,6 +89,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
+            //details page
             exact
             path="/details/:id"
           >
@@ -102,6 +97,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
+            //edit task form
             exact
             path="/edit/:id"
           >
@@ -109,6 +105,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
+            //overdue tasks page
             exact
             path="/overdue-tasks"
           >
@@ -116,6 +113,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
+            //completed tasks page
             exact
             path="/completed-tasks"
           >
@@ -123,6 +121,7 @@ function App() {
           </ProtectedRoute>
 
           <Route
+          //login page
             exact
             path="/login"
           >
@@ -137,6 +136,7 @@ function App() {
           </Route>
 
           <Route
+            //register page
             exact
             path="/registration"
           >
@@ -151,6 +151,7 @@ function App() {
           </Route>
 
           <Route
+            //home page (defunct/ need to delete)
             exact
             path="/home"
           >

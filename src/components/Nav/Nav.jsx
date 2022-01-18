@@ -1,12 +1,10 @@
 //import React from 'react';
-import React, {useEffect, useState} from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import { useSelector } from 'react-redux';
 import { Info } from 'react-feather';
 import { useHistory } from 'react-router-dom';
-
 
 function Nav() {
   const user = useSelector((store) => store.user);
@@ -26,209 +24,181 @@ function Nav() {
     setPath (location);
   })
 
-
-
   return (
     <header className="nav">
-    {(() => {
-      if (user.id === undefined && history.location.pathname === "/about") {
-        return (
-          <div>
+      {(() => {
+        if (user.id === undefined && history.location.pathname === "/about") {
+          return (
+            <div>
               <h2 className="nav-title">About</h2>
-          </div>
-        )
-      } else if (user.id === undefined && history.location.pathname === "/login") {
-        return (
-          <>
-          <div>
-            <Link to="/login">
-              <h2 className="nav-title">Task Matrix</h2>
-            </Link>
-          </div>
-          <span id="infoIcon" onClick={() => handleAboutClick()}>
-            <Info color='#ffffff' size="40" /> 
-          </span>
-          </>
-        )
-      } else if (user.id === undefined && history.location.pathname === "/registration") {
-        return(
-          <>
-          <div>
-            <Link to="/login">
-              <h2 className="nav-title">Task Matrix</h2>
-            </Link>
-          </div>
-          <span id="infoIcon" onClick={() => handleAboutClick()}>
-            <Info color='#ffffff' size="40" /> 
-          </span>
-          </>
-        )   
-      } else if (user.id && history.location.pathname === "/about") {
-        return (
-          <div>
-            <h2 className="nav-title">About</h2>
-          </div>
-        )
-      } else if (user.id && history.location.pathname === "/user") {
-        return (
-          <>
-          <div>
-            <Link to="/login">
-              <h2 className="nav-title">Task Matrix</h2>
-            </Link>
-          </div>
-          <span id="infoIcon" onClick={() => handleAboutClick()}>
-            <Info color='#ffffff' size="40" /> 
-          </span>
-          </>        )
-      } else if (user.id && history.location.pathname === "/list-view") {
-        return (
-          <>
-          <div>
-            
-              <h2 className="nav-title">List View</h2>
-            
-          </div>
-          <span id="infoIcon" onClick={() => handleAboutClick()}>
-            <Info color='#ffffff' size="40" /> 
-          </span>
-          </>          )
-      } else if (user.id && history.location.pathname === "/graph-view") {
-        return (
-          <>
-          <div>
-            
-              <h2 className="nav-title">Graph View</h2>
-            
-          </div>
-          <span id="infoIcon" onClick={() => handleAboutClick()}>
-            <Info color='#ffffff' size="40" /> 
-          </span>
-          </>        )
-      } else if (user.id && history.location.pathname === "/add-task-form") {
-        return (
-          <>
-          <div>
-            
-              <h2 className="nav-title">Add Task</h2>
-            
-          </div>
-          <span id="infoIcon" onClick={() => handleAboutClick()}>
-            <Info color='#ffffff' size="40" /> 
-          </span>
-          </>         )
-      } else if (user.id && history.location.pathname === `/details/${selectedTask.id}`) {
-        return (
-          <>
-          <div>
-            
-              <h2 className="nav-title">Task Details</h2>
-            
-          </div>
-          <span id="infoIcon" onClick={() => handleAboutClick()}>
-            <Info color='#ffffff' size="40" /> 
-          </span>
-          </>        )
-      } else if (user.id && history.location.pathname === `/edit/${selectedTask.id}`) {
-        return (
-          <>
-          <div>
-            
-              <h2 className="nav-title">Edit Task</h2>
-            
-          </div>
-          <span id="infoIcon" onClick={() => handleAboutClick()}>
-            <Info color='#ffffff' size="40" /> 
-          </span>
-          </>         )
-        
-      } else if(user.id && history.location.pathname === `/completed-tasks`) {
-        return(
-        <>
-        <div>
-          
-            <h2 className="nav-title">Completed Tasks</h2>
-          
-        </div>
-        <span id="infoIcon" onClick={() => handleAboutClick()}>
-          <Info color='#ffffff' size="40" /> 
-        </span>
-        </>         )
-      } else if (user.id && history.location.pathname === `/overdue-tasks`) {
-        return(
-          <>
-          <div>
-            
-              <h2 className="nav-title">Overdue Tasks</h2>
-            
-          </div>
-          <span id="infoIcon" onClick={() => handleAboutClick()}>
-            <Info color='#ffffff' size="40" /> 
-          </span>
-          </>         )
-      }else {
-        return (
-          <>
-          <div>
-            <Link to="/login">
-              <h2 className="nav-title">Task Matrix</h2>
-            </Link>
-          </div>
-          <span id="infoIcon" onClick={() => handleAboutClick()}>
-            <Info color='#ffffff' size="40" /> 
-          </span>
-          </>        )
-      }
-    })()}
+            </div>
+          )
+        } else if (user.id === undefined && history.location.pathname === "/login") {
+          return (
+            <>
+            <div>
+              <Link to="/login">
+                <h2 className="nav-title">Task Matrix</h2>
+              </Link>
+            </div>
 
-  </header>
+            <span id="infoIcon" onClick={() => handleAboutClick()}>
+              <Info color='#ffffff' size="40" /> 
+            </span>
+            </>
+          )
+        } else if (user.id === undefined && history.location.pathname === "/registration") {
+          return(
+            <>
+            <div>
+              <Link to="/login">
+                <h2 className="nav-title">Task Matrix</h2>
+              </Link>
+            </div>
+
+            <span id="infoIcon" onClick={() => handleAboutClick()}>
+              <Info color='#ffffff' size="40" /> 
+            </span>
+            </>
+          )   
+        } else if (user.id && history.location.pathname === "/about") {
+          return (
+            <div>
+              <h2 className="nav-title">About</h2>
+            </div>
+          )
+        } else if (user.id && history.location.pathname === "/user") {
+          return (
+            <>
+            <div>
+              <Link to="/login">
+                <h2 className="nav-title">Task Matrix</h2>
+              </Link>
+            </div>
+
+            <span id="infoIcon" onClick={() => handleAboutClick()}>
+              <Info color='#ffffff' size="40" /> 
+            </span>
+            </>
+          )
+        } else if (user.id && history.location.pathname === "/list-view") {
+          return (
+            <>
+            <div>
+              <h2 className="nav-title">
+                List View
+              </h2>
+            </div>
+
+            <span id="infoIcon" onClick={() => handleAboutClick()}>
+              <Info color='#ffffff' size="40" /> 
+            </span>
+            </>
+          )
+        } else if (user.id && history.location.pathname === "/graph-view") {
+          return (
+            <>
+            <div>
+              <h2 className="nav-title">
+                Graph View
+              </h2>
+            </div>
+
+            <span id="infoIcon" onClick={() => handleAboutClick()}>
+              <Info color='#ffffff' size="40" /> 
+            </span>
+            </>
+          )
+        } else if (user.id && history.location.pathname === "/add-task-form") {
+          return (
+            <>
+            <div>
+              <h2 className="nav-title">
+                Add Task
+              </h2>
+            </div>
+
+            <span id="infoIcon" onClick={() => handleAboutClick()}>
+              <Info color='#ffffff' size="40" /> 
+            </span>
+            </>
+          )
+        } else if (user.id && history.location.pathname === `/details/${selectedTask.id}`) {
+          return (
+            <>
+            <div>
+              <h2 className="nav-title">
+                Task Details
+              </h2>
+            </div>
+
+            <span id="infoIcon" onClick={() => handleAboutClick()}>
+              <Info color='#ffffff' size="40" /> 
+            </span>
+            </>
+          )
+        } else if (user.id && history.location.pathname === `/edit/${selectedTask.id}`) {
+          return (
+            <>
+            <div>
+              <h2 className="nav-title">
+                Edit Task
+              </h2>
+            </div>
+
+            <span id="infoIcon" onClick={() => handleAboutClick()}>
+              <Info color='#ffffff' size="40" /> 
+            </span>
+            </>
+          )
+        } else if(user.id && history.location.pathname === `/completed-tasks`) {
+          return(
+            <>
+            <div>
+              <h2 className="nav-title">
+                Completed Tasks
+              </h2>
+            </div>
+
+            <span id="infoIcon" onClick={() => handleAboutClick()}>
+              <Info color='#ffffff' size="40" /> 
+            </span>
+            </>
+          )
+        } else if (user.id && history.location.pathname === `/overdue-tasks`) {
+          return(
+            <>
+            <div>
+              <h2 className="nav-title">
+                Overdue Tasks
+              </h2>
+            </div>
+
+            <span id="infoIcon" onClick={() => handleAboutClick()}>
+              <Info color='#ffffff' size="40" /> 
+            </span>
+            </>
+          )
+        }else {
+          return (
+            <>
+            <div>
+              <Link to="/login">
+                <h2 className="nav-title">
+                  Task Matrix
+                </h2>
+              </Link>
+            </div>
+
+            <span id="infoIcon" onClick={() => handleAboutClick()}>
+              <Info color='#ffffff' size="40" /> 
+            </span>
+            </>
+          )
+        }
+      })()}
+    </header>
   );
 }
 
 export default Nav;
-
-{/* <div className="nav">
-<Link to="/login">
-  <h2 className="nav-title">Task Matrix</h2>
-</Link>
-<div> */}
-  {/* If no user is logged in, show these links */}
-  // {user.id === null &&
-  //   // If there's no user, show login/registration links
-  //   <Link className="navLink" to="/login">
-  //     Login / Register
-  //   </Link>
-  // }
-
-  {/* If a user is logged in, show these links */}
-  // {user.id && (
-  //   <>
-  //     <Link className="navLink" to="/user">
-  //       Home
-  //     </Link>
-
-  //     <Link className="navLink" to="/list-view">
-  //       List View
-  //     </Link>
-
-  //     <LogOutButton className="navLink" />
-  //   </>
-  // )}
-
-
-  {/* <Link className="navLink" to="/about">
-    About
-  </Link> */}
-
-  
-//     <span id="infoIcon" onClick={() => handleAboutClick()}>
-//         <Info color='#ffffff' size="40" 
-        
-        
-//         /> 
-//     </span>
-
-
-// </div>
-
-// </div>

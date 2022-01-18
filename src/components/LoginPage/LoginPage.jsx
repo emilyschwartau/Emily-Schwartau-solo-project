@@ -3,10 +3,12 @@ import LoginForm from '../LoginForm/LoginForm';
 import { useHistory } from 'react-router-dom';
 
 function LoginPage() {
+
   const history = useHistory();
 
   return (
     <div id="loginForm">
+
       <LoginForm />
 
       <center>
@@ -19,9 +21,12 @@ function LoginPage() {
         >
           Register
         </button>
-        <p>&copy; Emily Schwartau</p>
+
+        <p>
+          &copy; Emily Schwartau
+        </p>
+
       </center>
-   
     </div>
   );
 }

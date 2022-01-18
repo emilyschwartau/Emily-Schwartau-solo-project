@@ -10,6 +10,7 @@ function LoginForm() {
   const dispatch = useDispatch();
 
   const login = (event) => {
+
     event.preventDefault();
 
     if (username && password) {
@@ -20,15 +21,19 @@ function LoginForm() {
           password: password,
         },
       });
-    } else {
+    } 
+    else {
       dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
   }; // end login
 
   return (
-    // <div id="formDiv">
     <form className="formPanel" onSubmit={login}>
-      <h2 id="loginText">Login</h2>
+
+      <h2 id="loginText">
+        Login
+      </h2>
+
       {errors.loginMessage && (
         <h3 className="alert" role="alert">
           {errors.loginMessage}
@@ -36,33 +41,30 @@ function LoginForm() {
       )}
       
       <div id="username">
-        {/* <label htmlFor="username"> */}
-          <TextField id="outlined-basic-username" label="Username" variant="outlined"
-            type="text"
-            name="username"
-            required
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-          />
-        {/* </label> */}
+        <TextField id="outlined-basic-username" label="Username" variant="outlined"
+          type="text"
+          name="username"
+          required
+          value={username}
+          onChange={(event) => setUsername(event.target.value)}
+        />
       </div>
+
       <div id="password">
-    
-          <TextField id="outlined-basic-password" label="Password" variant="outlined"
-            type="password"
-            name="password"
-            required
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        
+        <TextField id="outlined-basic-password" label="Password" variant="outlined"
+          type="password"
+          name="password"
+          required
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+        />
       </div>
+
       <div id="loginButton">
         <input className="btn" type="submit" name="submit" value="Log In" />
       </div>
       
     </form>
-    // </div>
   );
 }
 

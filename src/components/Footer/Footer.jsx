@@ -1,23 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState } from 'react';
 import './Footer.css';
 import { useSelector } from 'react-redux';
-//import { Info } from 'react-feather';
-import { useHistory, useLocation, useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
-//import LogOutButton from '../LogOutButton/LogOutButton';
 import { useDispatch } from 'react-redux';
 import { Grid, List, PlusCircle } from 'react-feather';
-
-
-
-// This is one of our simplest components
-// It doesn't have local state, so it can be a function component.
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is, so it doesn't need 'connect()'
-
-
-
 
 function Footer() {
 
@@ -26,7 +13,6 @@ function Footer() {
   const selectedTask = useSelector((store) => store.selectedTaskReducer); 
   
   const { id } = useParams();
-
 
   const dispatch = useDispatch();
 
@@ -71,192 +57,194 @@ function Footer() {
           )
         } else if (user.id === undefined && history.location.pathname === "/login") {
           return (
-            <div></div>
+            <div>
+            </div>
           )
         } else if (user.id === undefined && history.location.pathname === "/registration") {
           return(
-            <div></div>
+            <div>
+            </div>
           )   
         } else if (user.id && history.location.pathname === "/about") {
           return (
             <div id="aboutLoggedIn">
-            <div id="aboutGridIcon">
-              <span id="gridIcon" onClick={() => gridClick()}>
-                <Grid color='#ffffff' size="40" /> 
-              </span>
-            </div>
-            <div id="aboutLogoutBtn">
-              <Button id="aboutLogoutBtnSpecific" variant="contained" size="large" onClick={() => aboutLogoutClick()}>Log Out</Button>
-            </div>
-            <div id="aboutListIcon">
-              <span id="listIcon" onClick={() => listClick()}>
-                <List color='#ffffff' size="40" /> 
-              </span>
-            </div>
+
+              <div id="aboutGridIcon">
+                <span id="gridIcon" onClick={() => gridClick()}>
+                  <Grid color='#ffffff' size="40" /> 
+                </span>
+              </div>
+
+              <div id="aboutLogoutBtn">
+                <Button id="aboutLogoutBtnSpecific" variant="contained" size="large" onClick={() => aboutLogoutClick()}>Log Out</Button>
+              </div>
+
+              <div id="aboutListIcon">
+                <span id="listIcon" onClick={() => listClick()}>
+                  <List color='#ffffff' size="40" /> 
+                </span>
+              </div>
+
             </div>
           )
         } else if (user.id && history.location.pathname === "/user") {
           return (
             <div id="aboutLoggedIn">
-            <div id="aboutGridIcon">
-              <span id="gridIcon" onClick={() => gridClick()}>
-                <Grid color='#ffffff' size="40" /> 
-              </span>
+
+              <div id="aboutGridIcon">
+                <span id="gridIcon" onClick={() => gridClick()}>
+                  <Grid color='#ffffff' size="40" /> 
+                </span>
+              </div>
+
+              <div id="addTaskIcon">
+                <span id="addTaskIcon" onClick={() => addClick()}>
+                  <PlusCircle color='#ffffff' size="40" /> 
+                </span>
+              </div>
+
+              <div id="userListIcon">
+                <span id="listIcon" onClick={() => listClick()}>
+                  <List color='#ffffff' size="40" /> 
+                </span>
+              </div>
+
             </div>
-            <div id="addTaskIcon">
-            <span id="addTaskIcon" onClick={() => addClick()}>
-                <PlusCircle color='#ffffff' size="40" /> 
-              </span>
-            </div>
-            <div id="userListIcon">
-              <span id="listIcon" onClick={() => listClick()}>
-                <List color='#ffffff' size="40" /> 
-              </span>
-            </div>
-            </div>          )
+          )
         } else if (user.id && history.location.pathname === "/list-view") {
           return (
             <div id="aboutLoggedIn">
 
-            <div id="GraphAddTaskIcon">
-            <span id="addTaskIcon" onClick={() => addClick()}>
-                <PlusCircle color='#ffffff' size="40" /> 
-              </span>
+              <div id="GraphAddTaskIcon">
+                <span id="addTaskIcon" onClick={() => addClick()}>
+                  <PlusCircle color='#ffffff' size="40" /> 
+                </span>
+              </div>
+
+              <div id="listGridIcon">
+                <span id="gridIcon" onClick={() => gridClick()}>
+                  <Grid color='#ffffff' size="40" /> 
+                </span>
+              </div>
+
             </div>
-            <div id="listGridIcon">
-              <span id="gridIcon" onClick={() => gridClick()}>
-                <Grid color='#ffffff' size="40" /> 
-              </span>
-            </div>
-            </div>           )
+          )
         } else if (user.id && history.location.pathname === "/graph-view") {
           return (
             <div id="aboutLoggedIn">
 
-            <div id="GraphAddTaskIcon">
-            <span id="addTaskIcon" onClick={() => addClick()}>
-                <PlusCircle color='#ffffff' size="40" /> 
-              </span>
+              <div id="GraphAddTaskIcon">
+                <span id="addTaskIcon" onClick={() => addClick()}>
+                  <PlusCircle color='#ffffff' size="40" /> 
+                </span>
+              </div>
+
+              <div id="graphListIcon">
+                <span id="listIcon" onClick={() => listClick()}>
+                  <List color='#ffffff' size="40" /> 
+                </span>
+              </div>
+
             </div>
-            <div id="graphListIcon">
-              <span id="listIcon" onClick={() => listClick()}>
-                <List color='#ffffff' size="40" /> 
-              </span>
-            </div>
-            </div>           )
+          )
         } else if (user.id && history.location.pathname === "/add-task-form") {
           return (
             <div id="aboutLoggedIn">
-            <div id="aboutGridIcon">
-              <span id="addGridIcon" onClick={() => gridClick()}>
-                <Grid color='#ffffff' size="40" /> 
-              </span>
-            </div>
- 
-            <div id="addListIcon">
-              <span id="listIcon" onClick={() => listClick()}>
-                <List color='#ffffff' size="40" /> 
-              </span>
-            </div>
-            </div>          )
-        } else if (user.id && history.location.pathname === `/details/${selectedTask.id}`) {
-          return (
-            <div id="aboutLoggedIn">
-            <div id="aboutGridIcon">
-              <span id="addGridIcon" onClick={() => gridClick()}>
-                <Grid color='#ffffff' size="40" /> 
-              </span>
-            </div>
- 
-            <div id="addListIcon">
-              <span id="listIcon" onClick={() => listClick()}>
-                <List color='#ffffff' size="40" /> 
-              </span>
-            </div>
-            </div>           )
-        } else if (user.id && history.location.pathname === `/edit/${selectedTask.id}`) {
-          
-            return (
-              <div id="aboutLoggedIn">
+
               <div id="aboutGridIcon">
                 <span id="addGridIcon" onClick={() => gridClick()}>
                   <Grid color='#ffffff' size="40" /> 
                 </span>
               </div>
-   
+ 
               <div id="addListIcon">
                 <span id="listIcon" onClick={() => listClick()}>
                   <List color='#ffffff' size="40" /> 
                 </span>
               </div>
+            </div>
+          )
+        } else if (user.id && history.location.pathname === `/details/${selectedTask.id}`) {
+          return (
+            <div id="aboutLoggedIn">
+
+              <div id="aboutGridIcon">
+                <span id="addGridIcon" onClick={() => gridClick()}>
+                  <Grid color='#ffffff' size="40" /> 
+                </span>
               </div>
-              )
-          
+ 
+              <div id="addListIcon">
+                <span id="listIcon" onClick={() => listClick()}>
+                  <List color='#ffffff' size="40" /> 
+                </span>
+              </div>
+
+            </div>
+          )
+        } else if (user.id && history.location.pathname === `/edit/${selectedTask.id}`) {
+            return (
+              <div id="aboutLoggedIn">
+
+                <div id="aboutGridIcon">
+                  <span id="addGridIcon" onClick={() => gridClick()}>
+                    <Grid color='#ffffff' size="40" /> 
+                  </span>
+                </div>
+   
+                <div id="addListIcon">
+                  <span id="listIcon" onClick={() => listClick()}>
+                    <List color='#ffffff' size="40" /> 
+                  </span>
+                </div>
+
+              </div>
+            )
         } else if (user.id && history.location.pathname === `/completed-tasks`) {
           return (
             <div id="aboutLoggedIn">
-            <div id="aboutGridIcon">
-              <span id="addGridIcon" onClick={() => gridClick()}>
-                <Grid color='#ffffff' size="40" /> 
-              </span>
-            </div>
+
+              <div id="aboutGridIcon">
+                <span id="addGridIcon" onClick={() => gridClick()}>
+                  <Grid color='#ffffff' size="40" /> 
+                </span>
+              </div>
  
-            <div id="addListIcon">
-              <span id="listIcon" onClick={() => listClick()}>
-                <List color='#ffffff' size="40" /> 
-              </span>
-            </div>
+              <div id="addListIcon">
+                <span id="listIcon" onClick={() => listClick()}>
+                  <List color='#ffffff' size="40" /> 
+                </span>
+              </div>
+
             </div>
           )
-
         } else if (user.id && history.location.pathname === `/overdue-tasks`) {
           return (
             <div id="aboutLoggedIn">
-            <div id="aboutGridIcon">
-              <span id="addGridIcon" onClick={() => gridClick()}>
-                <Grid color='#ffffff' size="40" /> 
-              </span>
-            </div>
+
+              <div id="aboutGridIcon">
+                <span id="addGridIcon" onClick={() => gridClick()}>
+                  <Grid color='#ffffff' size="40" /> 
+                </span>
+              </div>
  
-            <div id="addListIcon">
-              <span id="listIcon" onClick={() => listClick()}>
-                <List color='#ffffff' size="40" /> 
-              </span>
-            </div>
+              <div id="addListIcon">
+                <span id="listIcon" onClick={() => listClick()}>
+                  <List color='#ffffff' size="40" /> 
+                </span>
+              </div>
+
             </div>
           )
-
         } else {
           return (
-            <div></div>
+            <div>
+            </div>
           )
         }
       })()}
-
     </footer>
-  )
-  
+  ) 
 }
 
 export default Footer;
-
-
-     {/* if no user logged in */}
-     
-    //  {user.id === undefined && 
-    //   //  history.location.pathname === "/about" (
-    //   //    <p>about page not logged in </p>
-    //   //  )
-
-      
-
-    // (
-     
-      
-    //  <p>not logged in </p>
-    // )}   
-
-    // {/* If a user is logged in */}
-    //   {user.id && (
-    //   <p>logged in</p>
-    //   )}
