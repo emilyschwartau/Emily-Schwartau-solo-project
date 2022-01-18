@@ -23,11 +23,8 @@ One method of task prioritization is called the Eisenhower Matrix, where tasks a
 
 ## Screenshots
 
-<div>
-Graph View Page
-<img src="/documentation/images/solo project screenshots/Screen Shot 2022-01-18 at 2.23.22 PM.png" style="width:500px;height:600px;"/>
 
-</div>
+<img src="/documentation/images/solo project screenshots/Screen Shot 2022-01-18 at 2.23.22 PM.png" style="height:600px;"/>
 
 ## Built With
 
